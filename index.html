@@ -244,34 +244,44 @@
           <p class="section-tag">Haz tu predicción</p>
           <h2>¿Pequeña guerrera o pequeño saiyajin?</h2>
           <p>
-            Elige una opción. Tu respuesta quedará guardada en esta visita y
-            se enviará automáticamente cuando confirmes tu asistencia.
+            Elige una opción. Tu respuesta quedará guardada y se enviará
+            automáticamente cuando confirmes tu asistencia.
           </p>
         </header>
 
-        <div class="prediction-grid">
+        <div class="prediction-grid prediction-grid-images">
           <button
-            class="prediction-card prediction-card-pink reveal"
+            class="prediction-character prediction-character-pink reveal"
             type="button"
             data-prediction="Pequeña guerrera"
             aria-pressed="false">
-            <span class="prediction-emoji">🌸</span>
+            <span class="prediction-aura prediction-aura-pink"></span>
+
+            <span class="prediction-image-frame prediction-image-frame-pink">
+              <img src="assets/Milk.png" alt="Milk bebé">
+            </span>
+
             <small>Creo que será una</small>
             <strong>Pequeña guerrera</strong>
-            <span class="prediction-action">Elegir esta opción</span>
+            <span class="prediction-action">Elegir a Milk</span>
           </button>
 
           <div class="versus reveal">VS</div>
 
           <button
-            class="prediction-card prediction-card-blue reveal"
+            class="prediction-character prediction-character-blue reveal"
             type="button"
             data-prediction="Pequeño saiyajin"
             aria-pressed="false">
-            <span class="prediction-emoji">⚡</span>
+            <span class="prediction-aura prediction-aura-blue"></span>
+
+            <span class="prediction-image-frame prediction-image-frame-blue">
+              <img src="assets/Goku.png" alt="Goku bebé">
+            </span>
+
             <small>Creo que será un</small>
             <strong>Pequeño saiyajin</strong>
-            <span class="prediction-action">Elegir esta opción</span>
+            <span class="prediction-action">Elegir a Goku</span>
           </button>
         </div>
 
@@ -281,26 +291,33 @@
       </div>
     </section>
 <section class="section wishes-section" id="regalos">
-      <div class="container wishes-layout">
-        <div class="shenlong-stage reveal">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-tag">Nuestros deseos</p>
+          <h2>Sheng Long guarda las mesas de regalos</h2>
+          <p>
+            Toca la imagen para revelar los deseos de Gloria y Anthar.
+          </p>
+        </header>
+
+        <div class="shenlong-card reveal">
           <button
             class="shenlong-button"
             id="shenlongButton"
             type="button"
             aria-expanded="false"
             aria-controls="giftWishes">
-            <span class="shenlong-glow" aria-hidden="true"></span>
-            <img src="assets/Sheng%20Long.png" alt="Shenlong de Baby Shower">
-            <span class="shenlong-instruction">Toca a Sheng Long para revelar los deseos</span>
-          </button>
-        </div>
 
-        <div class="wishes-copy reveal">
-          <p class="section-tag">Nuestros deseos</p>
-          <h2>Sheng Long guarda las mesas de regalos</h2>
-          <p>
-            Haz clic en Sheng Long para revelar las mesas de regalos de Gloria y Anthar.
-          </p>
+            <span class="shenlong-glow" aria-hidden="true"></span>
+
+            <span class="shenlong-image-wrap">
+              <img src="assets/Sheng%20Long.png" alt="Sheng Long de Baby Shower">
+            </span>
+
+            <span class="shenlong-instruction">
+              Toca a Sheng Long para revelar los deseos
+            </span>
+          </button>
 
           <div class="gift-wishes" id="giftWishes" hidden>
             <a

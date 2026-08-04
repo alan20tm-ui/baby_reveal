@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#06142d">
+  <meta name="description" content="Invitación digital para Baby Shower y Gender Reveal">
+  <title>Baby Shower & Gender Reveal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+  <div class="loader" id="loader">
+    <div class="dragon-ball loader-ball"><span>★★★★</span></div>
+    <p>Reuniendo energía...</p>
+  </div>
+
+  <section class="intro" id="intro">
+    <div class="stars"></div>
+    <div class="intro-content">
+      <div class="dragon-ball intro-ball"><span>★★★★</span></div>
+      <p class="eyebrow">Baby Shower + Gender Reveal</p>
+      <h1>Una nueva aventura<br><span>está por comenzar</span></h1>
+      <p class="intro-copy">
+        Un nuevo integrante está por llegar a nuestra familia.
+        Acompáñanos a descubrir si será una pequeña guerrera o un poderoso saiyajin.
+      </p>
+      <button id="startBtn" class="main-btn">Comenzar la aventura</button>
+      <small>Toca para entrar y activar la música</small>
+    </div>
+  </section>
+
+  <header class="navbar">
+    <a href="#inicio" class="brand">
+      <span class="mini-ball">4</span>
+      <span>Nuestra aventura</span>
+    </a>
+
+    <nav id="navMenu">
+      <a href="#detalles">Detalles</a>
+      <a href="#contador">Cuenta regresiva</a>
+      <a href="#equipos">Elige tu equipo</a>
+      <a href="#confirmar">Confirmar</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button id="musicBtn" class="icon-btn" aria-label="Música">♫</button>
+      <button id="menuBtn" class="menu-btn" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="cloud cloud-1"></div>
+      <div class="cloud cloud-2"></div>
+
+      <div class="hero-grid container">
+        <article class="character reveal">
+          <div class="aura pink-aura"></div>
+          <div class="character-card pink-card">
+            <img src="assets/Milk.png" alt="Milk bebé">
+          </div>
+          <div class="team-label pink-label">¿Pequeña guerrera?</div>
+        </article>
+
+        <div class="hero-copy reveal">
+          <p class="kicker">El deseo más grande está por cumplirse</p>
+          <h2>¿Será <span class="pink-text">niña</span><br>o <span class="blue-text">niño</span>?</h2>
+          <p>
+            Queremos compartir contigo un día lleno de amor, juegos,
+            sorpresas y muchísima energía.
+          </p>
+
+          <div class="date-pill">
+            <span>Sábado</span>
+            <strong>12 · Junio · 2027</strong>
+            <span>5:00 PM</span>
+          </div>
+
+          <div class="hero-buttons">
+            <a href="#confirmar" class="btn btn-primary">Confirmar asistencia</a>
+            <a href="#detalles" class="btn btn-glass">Ver detalles</a>
+          </div>
+        </div>
+
+        <article class="character reveal">
+          <div class="aura blue-aura"></div>
+          <div class="character-card blue-card">
+            <img src="assets/Goku.png" alt="Goku bebé">
+          </div>
+          <div class="team-label blue-label">¿Pequeño saiyajin?</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section welcome">
+      <div class="container">
+        <div class="capsule reveal">
+          <p class="section-tag">Mensaje de los futuros papás</p>
+          <h2>Una sorpresa muy especial</h2>
+          <p>
+            Nuestra familia está por vivir una de sus aventuras más importantes.
+            Nos encantará que seas parte del momento en que descubriremos quién viene en camino.
+          </p>
+          <strong>Mamá & Papá</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="section details" id="detalles">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-tag">Coordenadas de la misión</p>
+          <h2>Detalles del evento</h2>
+          <p>Todo lo necesario para acompañarnos en esta celebración.</p>
+        </header>
+
+        <div class="cards-grid">
+          <article class="info-card reveal">
+            <div class="card-number">01</div>
+            <h3>Fecha</h3>
+            <p>Sábado 12 de junio de 2027</p>
+          </article>
+
+          <article class="info-card reveal">
+            <div class="card-number">02</div>
+            <h3>Hora</h3>
+            <p>Recepción a partir de las 5:00 PM</p>
+          </article>
+
+          <article class="info-card reveal">
+            <div class="card-number">03</div>
+            <h3>Lugar</h3>
+            <p>Jardín Aurora · Ciudad de México</p>
+          </article>
+
+          <article class="info-card reveal">
+            <div class="card-number">04</div>
+            <h3>Dress code</h3>
+            <p>Rosa, azul, naranja o tonos neutros</p>
+          </article>
+        </div>
+
+        <div class="center">
+          <a class="btn btn-primary" href="https://maps.google.com" target="_blank" rel="noopener noreferrer">Abrir ubicación</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section countdown-section" id="contador">
+      <div class="container countdown-layout">
+        <div class="countdown-copy reveal">
+          <p class="section-tag">El gran día se acerca</p>
+          <h2>Cuenta regresiva</h2>
+          <p>Cada segundo nos acerca al momento en que conoceremos al nuevo integrante.</p>
+        </div>
+
+        <div class="countdown reveal">
+          <div><strong id="days">00</strong><span>Días</span></div>
+          <div><strong id="hours">00</strong><span>Horas</span></div>
+          <div><strong id="minutes">00</strong><span>Minutos</span></div>
+          <div><strong id="seconds">00</strong><span>Segundos</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section itinerary">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-tag">Programa de entrenamiento</p>
+          <h2>Itinerario</h2>
+        </header>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <div class="timeline-time">5:00 PM</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span>Bienvenida</span>
+              <h3>Recepción de invitados</h3>
+              <p>Un momento para convivir y comenzar a reunir energía.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-time">6:00 PM</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span>Baby Shower</span>
+              <h3>Juegos y dinámicas</h3>
+              <p>Pruebas, risas y actividades para todos los equipos.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-time">7:00 PM</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span>Momento especial</span>
+              <h3>La gran revelación</h3>
+              <p>Descubriremos juntos quién viene en camino.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section teams" id="equipos">
+      <div class="container">
+        <header class="section-header light reveal">
+          <p class="section-tag">Elige tu lado</p>
+          <h2>¿Equipo Milk o Equipo Goku?</h2>
+          <p>Haz tu predicción y libera toda tu energía.</p>
+        </header>
+
+        <div class="team-grid">
+          <article class="team-card reveal">
+            <p>Creo que será...</p>
+            <h3>Una pequeña guerrera</h3>
+            <button class="vote-btn pink-vote" data-team="milk">Votar por Milk</button>
+            <small><strong id="milkVotes">0</strong> votos en este dispositivo</small>
+          </article>
+
+          <div class="versus reveal">VS</div>
+
+          <article class="team-card reveal">
+            <p>Creo que será...</p>
+            <h3>Un pequeño saiyajin</h3>
+            <button class="vote-btn blue-vote" data-team="goku">Votar por Goku</button>
+            <small><strong id="gokuVotes">0</strong> votos en este dispositivo</small>
+          </article>
+        </div>
+
+        <p id="voteMessage" class="vote-message"></p>
+      </div>
+    </section>
+
+    <section class="section balls-section">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-tag">Reúne las siete esferas</p>
+          <h2>El deseo está por cumplirse</h2>
+        </header>
+
+        <div class="balls-row">
+          <div class="dragon-ball progress-ball"><span>★</span></div>
+          <div class="dragon-ball progress-ball"><span>★★</span></div>
+          <div class="dragon-ball progress-ball"><span>★★★</span></div>
+          <div class="dragon-ball progress-ball"><span>★★★★</span></div>
+          <div class="dragon-ball progress-ball"><span>★★★★★</span></div>
+          <div class="dragon-ball progress-ball"><span>★★★★★★</span></div>
+          <div class="dragon-ball progress-ball"><span>★★★★★★★</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gifts">
+      <div class="container gift-layout">
+        <div class="gift-box reveal"><div class="ribbon"></div></div>
+
+        <div class="gift-copy reveal">
+          <p class="section-tag">Baby Shower</p>
+          <h2>Tu presencia es nuestro mejor regalo</h2>
+          <p>
+            Pero si deseas obsequiar algo al bebé, puedes consultar nuestra mesa de regalos
+            o participar en la lluvia de sobres.
+          </p>
+          <div class="gift-buttons">
+            <a href="#" class="btn btn-primary">Mesa de regalos</a>
+            <button id="copyGift" class="btn btn-secondary">Copiar información</button>
+          </div>
+          <p id="copyStatus" class="copy-status"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal-section">
+      <div class="reveal-content reveal">
+        <div class="mystery">?</div>
+        <p class="section-tag">El momento más esperado</p>
+        <h2>¿Quién viene en camino?</h2>
+        <p>
+          La respuesta sigue protegida por las esferas.
+          Muy pronto descubriremos si nuestra aventura se pinta de rosa o de azul.
+        </p>
+        <button id="energyBtn" class="main-btn">Liberar energía</button>
+      </div>
+    </section>
+
+    <section class="section rsvp" id="confirmar">
+      <div class="container rsvp-grid">
+        <div class="rsvp-copy reveal">
+          <p class="section-tag">Confirma tu participación</p>
+          <h2>Queremos vivir esta aventura contigo</h2>
+          <p>Completa tus datos y te llevaremos directamente a WhatsApp.</p>
+        </div>
+
+        <form id="rsvpForm" class="rsvp-form reveal">
+          <label>
+            Tu nombre
+            <input id="guestName" type="text" required placeholder="Escribe tu nombre">
+          </label>
+
+          <label>
+            Número de asistentes
+            <select id="guestCount">
+              <option value="1">1 persona</option>
+              <option value="2">2 personas</option>
+              <option value="3">3 personas</option>
+              <option value="4">4 personas</option>
+              <option value="5">5 personas</option>
+            </select>
+          </label>
+
+          <fieldset>
+            <legend>Mi predicción</legend>
+            <label><input type="radio" name="prediction" value="Equipo Milk"> Equipo Milk</label>
+            <label><input type="radio" name="prediction" value="Equipo Goku"> Equipo Goku</label>
+            <label><input type="radio" name="prediction" value="Aún no lo sé" checked> Aún no lo sé</label>
+          </fieldset>
+
+          <label>
+            Mensaje
+            <textarea id="guestMessage" rows="4" placeholder="Mensaje opcional"></textarea>
+          </label>
+
+          <button type="submit" class="btn btn-primary full">Confirmar por WhatsApp</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="dragon-ball footer-ball"><span>★★★★</span></div>
+    <h2>Nuestra aventura apenas comienza</h2>
+    <p>Gracias por formar parte de este momento tan especial.</p>
+  </footer>
+
+  <canvas id="effects"></canvas>
+
+  <audio id="music" loop preload="metadata">
+    <source src="assets/Dragon%20Ball%20Z.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="app.js"></script>
+</body>
+</html>

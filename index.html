@@ -390,6 +390,15 @@
     <source src="assets/Dragon%20Ball%20Z.mp3" type="audio/mpeg">
   </audio>
 
+
+  <script>
+    // Seguro de carga: nunca dejar la pantalla bloqueada.
+    window.setTimeout(function () {
+      var loader = document.getElementById("loader");
+      if (loader) loader.classList.add("hide");
+    }, 2500);
+  </script>
+
   <script src="app.js"></script>
 </body>
 </html>

@@ -1093,3 +1093,296 @@ footer{padding:85px 20px;color:#fff;text-align:center;background:var(--navy)}.fo
     min-height: 230px;
   }
 }
+
+
+/* =========================================================
+   CORRECCIÓN: PREDICCIÓN CON MILK Y GOKU
+   ========================================================= */
+
+.prediction-grid-images {
+  grid-template-columns: minmax(260px, 1fr) 90px minmax(260px, 1fr);
+  align-items: center;
+  gap: 26px;
+}
+
+.prediction-character {
+  position: relative;
+  min-height: 610px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding: 28px 28px 34px;
+  border: 2px solid rgba(255,255,255,.13);
+  border-radius: 36px;
+  color: #fff;
+  text-align: center;
+  background: rgba(255,255,255,.055);
+  backdrop-filter: blur(14px);
+  cursor: pointer;
+  isolation: isolate;
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+
+.prediction-character:hover {
+  transform: translateY(-8px);
+}
+
+.prediction-character.selected {
+  transform: translateY(-10px) scale(1.018);
+}
+
+.prediction-character-pink.selected {
+  border-color: #ff86ba;
+  box-shadow:
+    0 0 0 8px rgba(255,90,167,.09),
+    0 28px 80px rgba(255,90,167,.24);
+}
+
+.prediction-character-blue.selected {
+  border-color: #70c3ff;
+  box-shadow:
+    0 0 0 8px rgba(63,169,255,.09),
+    0 28px 80px rgba(63,169,255,.24);
+}
+
+.prediction-image-frame {
+  position: relative;
+  z-index: 2;
+  width: min(360px, 92%);
+  height: 405px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 18px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 48% 48% 28px 28px;
+  background: rgba(255,255,255,.07);
+}
+
+.prediction-image-frame-pink {
+  box-shadow:
+    inset 0 0 75px rgba(255,90,167,.22),
+    0 24px 55px rgba(20,0,30,.18);
+}
+
+.prediction-image-frame-blue {
+  box-shadow:
+    inset 0 0 75px rgba(63,169,255,.22),
+    0 24px 55px rgba(0,20,45,.18);
+}
+
+.prediction-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 24px 24px rgba(0,0,0,.22));
+  transition: transform .35s ease, filter .35s ease;
+}
+
+.prediction-character:hover .prediction-image-frame img {
+  transform: translateY(-8px) scale(1.035);
+  filter:
+    drop-shadow(0 28px 26px rgba(0,0,0,.25))
+    brightness(1.05);
+}
+
+.prediction-aura {
+  position: absolute;
+  z-index: 0;
+  top: 12%;
+  width: 72%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(42px);
+  opacity: .34;
+  animation: auraPulse 2.5s ease-in-out infinite;
+}
+
+.prediction-aura-pink {
+  background: #ff5aa7;
+}
+
+.prediction-aura-blue {
+  background: #3fa9ff;
+}
+
+.prediction-character small,
+.prediction-character strong,
+.prediction-character .prediction-action {
+  position: relative;
+  z-index: 3;
+}
+
+.prediction-character small {
+  color: rgba(255,255,255,.62);
+  font-weight: 700;
+}
+
+.prediction-character strong {
+  margin: 6px 0 14px;
+  font-family: "Bangers", sans-serif;
+  font-size: clamp(2.8rem, 4.5vw, 4.3rem);
+  font-weight: 400;
+  letter-spacing: .04em;
+  line-height: .9;
+}
+
+.prediction-character .prediction-action {
+  padding: 11px 18px;
+  border-radius: 999px;
+  color: #13203b;
+  font-size: .76rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  box-shadow: 0 14px 30px rgba(255,138,0,.22);
+}
+
+/* =========================================================
+   CORRECCIÓN: SHENG LONG
+   ========================================================= */
+
+.wishes-section {
+  padding: 110px 0;
+  background:
+    radial-gradient(circle at 50% 28%, rgba(104,214,132,.18), transparent 28%),
+    radial-gradient(circle at 50% 82%, rgba(255,205,68,.15), transparent 26%),
+    linear-gradient(180deg, #f7fbff 0%, #eef8f1 100%);
+}
+
+.shenlong-card {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 30px 34px;
+  border: 1px solid rgba(20,83,46,.09);
+  border-radius: 38px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(255,255,255,.95), rgba(255,255,255,.78) 55%, rgba(238,248,241,.92) 100%);
+  box-shadow: 0 28px 80px rgba(18,69,37,.12);
+}
+
+.shenlong-button {
+  position: relative;
+  width: min(560px, 100%);
+  margin: 0 auto;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.shenlong-image-wrap {
+  position: relative;
+  z-index: 2;
+  width: min(480px, 90%);
+  height: 520px;
+  display: block;
+  overflow: hidden;
+  margin: 0 auto 18px;
+  border-radius: 30px;
+  background: #f5f6f8;
+  box-shadow:
+    inset 0 0 0 1px rgba(5,25,50,.07),
+    0 22px 55px rgba(15,70,35,.13);
+}
+
+.shenlong-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  filter: none;
+  transition: transform .45s ease, filter .45s ease;
+}
+
+.shenlong-button:hover .shenlong-image-wrap img {
+  transform: scale(1.025);
+}
+
+.shenlong-button.awakened .shenlong-image-wrap img {
+  animation: shenlongAwaken .9s ease;
+  filter:
+    brightness(1.06)
+    drop-shadow(0 0 12px rgba(255,214,65,.28));
+}
+
+.shenlong-glow {
+  position: absolute;
+  z-index: 0;
+  inset: 15% 12% 20%;
+  border-radius: 50%;
+  opacity: .26;
+  background:
+    radial-gradient(circle, rgba(255,218,74,.72), rgba(76,205,108,.24) 44%, transparent 72%);
+  filter: blur(38px);
+  animation: shenlongGlow 2.8s ease-in-out infinite;
+}
+
+.shenlong-instruction {
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  justify-content: center;
+  max-width: 92%;
+  padding: 13px 22px;
+  border-radius: 999px;
+  color: #10243b;
+  font-size: .82rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  box-shadow: 0 14px 34px rgba(255,138,0,.24);
+}
+
+.shenlong-card .gift-wishes {
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.shenlong-card .wish-message {
+  margin-top: 15px;
+  text-align: center;
+}
+
+@media (max-width: 850px) {
+  .prediction-grid-images {
+    grid-template-columns: 1fr;
+  }
+
+  .prediction-character {
+    min-height: 560px;
+  }
+
+  .prediction-image-frame {
+    height: 365px;
+  }
+}
+
+@media (max-width: 640px) {
+  .prediction-character {
+    min-height: 470px;
+    padding: 20px 16px 28px;
+  }
+
+  .prediction-image-frame {
+    height: 295px;
+  }
+
+  .shenlong-card {
+    padding: 24px 14px 28px;
+    border-radius: 28px;
+  }
+
+  .shenlong-image-wrap {
+    width: 100%;
+    height: 390px;
+    border-radius: 22px;
+  }
+
+  .shenlong-instruction {
+    font-size: .72rem;
+  }
+}

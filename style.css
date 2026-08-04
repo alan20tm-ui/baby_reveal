@@ -1168,20 +1168,40 @@ footer{padding:85px 20px;color:#fff;text-align:center;background:var(--navy)}.fo
   .prediction-image-frame {
     height: 295px !important;
   }
-/* Quitar visualmente el fondo blanco de Milk y Goku */
-.prediction-character,
-.prediction-image-frame {
+}
+
+/* =========================================================
+   ÚNICO AJUSTE FINAL:
+   quitar el recuadro visible detrás de Milk y Goku
+   sin modificar tamaños, posiciones ni estructura
+   ========================================================= */
+
+.prediction-character {
+  background: rgba(255, 255, 255, .055) !important;
+}
+
+.prediction-image-frame,
+.prediction-image-frame-pink,
+.prediction-image-frame-blue {
   background: transparent !important;
-  border: none !important;
+  border: 0 !important;
   box-shadow: none !important;
+  backdrop-filter: none !important;
   overflow: visible !important;
 }
 
 .prediction-image-frame img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;
-  mix-blend-mode: multiply;
-  filter: drop-shadow(0 24px 28px rgba(0, 0, 0, .28));
+  background: transparent !important;
+  mix-blend-mode: multiply !important;
+  filter:
+    drop-shadow(0 24px 26px rgba(0, 0, 0, .28))
+    brightness(1.08)
+    contrast(1.08) !important;
 }
+
+.prediction-character:hover .prediction-image-frame img {
+  filter:
+    drop-shadow(0 28px 28px rgba(0, 0, 0, .32))
+    brightness(1.1)
+    contrast(1.08) !important;
 }

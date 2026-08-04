@@ -1974,3 +1974,66 @@ footer{padding:85px 20px;color:#fff;text-align:center;background:var(--navy)}.fo
     max-height: 540px !important;
   }
 }
+
+
+/* ===== AJUSTES FUNCIONALES Y DE ESPACIADO 04-08 ===== */
+
+/* Las esferas decorativas ya no muestran estrellas como texto */
+.hero-ball,
+.intro-dragon-ball,
+.experience-ball {
+  font-size: 0 !important;
+  color: transparent !important;
+  letter-spacing: 0 !important;
+}
+
+/* Más aire entre navbar, kicker y título principal */
+.hero-grid {
+  padding-top: 175px !important;
+}
+
+.hero-copy .kicker {
+  margin-bottom: 28px !important;
+}
+
+.hero-copy h2 {
+  margin-top: 16px !important;
+  padding-top: .38em !important;
+  line-height: .92 !important;
+}
+
+/* Predicción: espacio vertical sin modificar tarjetas */
+.prediction-hero-section .section-header {
+  margin-bottom: 78px !important;
+}
+
+.prediction-hero-section .section-header h2 {
+  padding-top: .18em !important;
+  line-height: .94 !important;
+}
+
+/* Nuestros deseos más visible */
+.wishes-heading .section-tag {
+  margin-bottom: 18px !important;
+  font-size: clamp(1.05rem, 1.8vw, 1.45rem) !important;
+  letter-spacing: .25em !important;
+}
+
+.wishes-heading h2 {
+  margin-bottom: 24px !important;
+}
+
+/* Botones revelados por Sheng Long */
+.gift-wishes:not([hidden]) {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 14px !important;
+  flex-wrap: wrap !important;
+  margin-top: 28px !important;
+  animation: wishesAppear .55s ease both !important;
+}
+
+@media (max-width: 640px) {
+  .hero-grid { padding-top: 145px !important; }
+  .prediction-hero-section .section-header { margin-bottom: 52px !important; }
+}

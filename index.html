@@ -1,430 +1,436 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#06142d">
-  <meta name="description" content="Invitación digital para Baby Shower y Gender Reveal">
-  <title>Baby Shower & Gender Reveal</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
-</head>
-<body class="locked">
-
-  <div class="loader" id="loader">
-    <div class="dragon-ball loader-ball"><span>★★★★</span></div>
-    <p>Reuniendo energía...</p>
-  </div>
-
-  <section class="intro" id="intro">
-    <div class="stars"></div>
-    <div class="intro-content">
-      <div class="dragon-ball intro-ball"><span>★★★★</span></div>
-      <p class="eyebrow">Baby Shower + Revelación de género</p>
-      <h1>Una nueva aventura<br><span>está por comenzar</span></h1>
-      <p class="intro-copy">
-        Un nuevo integrante está por llegar a nuestra familia.
-        Acompáñanos a celebrar nuestro Baby Shower y a descubrir si será una pequeña guerrera o un poderoso saiyajin.
-      </p>
-      <button id="startBtn" class="main-btn">Comenzar la aventura</button>
-      <small>Toca para entrar y activar la música</small>
+  <!DOCTYPE html>
+  <html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#06142d">
+    <meta name="description" content="Invitación digital para Baby Shower y Gender Reveal">
+    <title>Baby Shower & Gender Reveal</title>
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="locked">
+  
+    <div class="loader" id="loader">
+      <div class="dragon-ball loader-ball"><span>★★★★</span></div>
+      <p>Reuniendo energía...</p>
     </div>
-  </section>
-
-  <header class="navbar">
-    <a href="#inicio" class="brand">
-      <span class="mini-ball">4</span>
-      <span>Nuestra aventura</span>
-    </a>
-
-    <nav id="navMenu">
-      <a href="#detalles">Detalles</a>
-      <a href="#contador">Cuenta regresiva</a>
-      <a href="#equipos">Predicción</a>
-      <a href="#galeria">Galería</a>
-      <a href="#regalos">Regalos</a>
-      <a href="#confirmar">Confirmar</a>
-    </nav>
-
-    <div class="nav-actions">
-      <button id="musicBtn" class="icon-btn" aria-label="Música">♫</button>
-      <button id="menuBtn" class="menu-btn" aria-label="Menú">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero" id="inicio">
-      <div class="hero-ball hero-ball-1">★</div>
-      <div class="hero-ball hero-ball-2">★★</div>
-      <div class="hero-ball hero-ball-3">★★★</div>
-      <div class="cloud cloud-1"></div>
-      <div class="cloud cloud-2"></div>
-
-      <div class="hero-grid container">
-        <article class="character reveal">
-          <div class="aura pink-aura"></div>
-          <div class="character-card pink-card">
-            <img src="assets/Milk.png" alt="Milk bebé">
-          </div>
-          <div class="team-label pink-label">¿Pequeña guerrera?</div>
-        </article>
-
-        <div class="hero-copy reveal">
-          <p class="kicker">El deseo más grande está por cumplirse</p>
-          <h2>¿Será <span class="pink-text">niña</span><br>o <span class="blue-text">niño</span>?</h2>
-          <p>
-            Queremos compartir contigo un día lleno de amor, juegos,
-            sorpresas y muchísima energía.
-          </p>
-
-          <div class="date-pill">
-            <span>Sábado</span>
-            <strong>15 · Agosto · 2026</strong>
-            <span>12:00 PM</span>
-          </div>
-
-          <div class="hero-buttons">
-            <a href="#confirmar" class="btn btn-primary">Confirmar asistencia</a>
-            <a href="#detalles" class="btn btn-glass">Ver detalles</a>
-          </div>
-        </div>
-
-        <article class="character reveal">
-          <div class="aura blue-aura"></div>
-          <div class="character-card blue-card">
-            <img src="assets/Goku.png" alt="Goku bebé">
-          </div>
-          <div class="team-label blue-label">¿Pequeño saiyajin?</div>
-        </article>
+  
+    <section class="intro" id="intro">
+      <div class="stars"></div>
+      <div class="intro-content">
+        <div class="dragon-ball intro-ball"><span>★★★★</span></div>
+        <p class="eyebrow">Baby Shower + Revelación de género</p>
+        <h1>Una nueva aventura<br><span>está por comenzar</span></h1>
+        <p class="intro-copy">
+          Un nuevo integrante está por llegar a nuestra familia.
+          Acompáñanos a celebrar nuestro Baby Shower y a descubrir si será una pequeña guerrera o un poderoso saiyajin.
+        </p>
+        <button id="startBtn" class="main-btn">Comenzar la aventura</button>
+        <small>Toca para entrar y activar la música</small>
       </div>
     </section>
-
-    <section class="section welcome">
-      <div class="container">
-        <div class="capsule reveal">
-          <p class="section-tag">Mensaje de los futuros papás</p>
-          <h2>Una sorpresa muy especial</h2>
-          <p>
-            Nuestra familia está por vivir una de sus aventuras más importantes.
-            Nos encantará que seas parte del momento en que descubriremos quién viene en camino.
-          </p>
-          <strong>Gloria & Anthar</strong>
-        </div>
+  
+    <header class="navbar">
+      <a href="#inicio" class="brand">
+        <span class="mini-ball">4</span>
+        <span>Nuestra aventura</span>
+      </a>
+  
+      <nav id="navMenu">
+        <a href="#detalles">Detalles</a>
+        <a href="#contador">Cuenta regresiva</a>
+        <a href="#equipos">Predicción</a>
+        <a href="#galeria">Galería</a>
+        <a href="#regalos">Regalos</a>
+        <a href="#confirmar">Confirmar</a>
+      </nav>
+  
+      <div class="nav-actions">
+        <button id="musicBtn" class="icon-btn" aria-label="Música">♫</button>
+        <button id="menuBtn" class="menu-btn" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-    </section>
-
-    <section class="section details radar-details" id="detalles">
-      <div class="container">
-        <header class="section-header radar-heading reveal">
-          <p class="section-tag">Coordenadas de la misión</p>
-          <h2>Detalles del evento</h2>
-          <p>Todo lo necesario para acompañarnos en esta celebración.</p>
-        </header>
-
-        <div class="event-highlight-grid">
-          <article class="event-highlight event-highlight-date reveal">
-            <small>Fecha</small>
-            <strong>15 de agosto de 2026</strong>
-          </article>
-
-          <article class="event-highlight event-highlight-time reveal">
-            <small>Hora</small>
-            <strong>12:00 PM</strong>
-          </article>
-        </div>
-
-        <div class="location-radar-card reveal">
-          <div class="location-radar-visual">
-            <div class="radar-energy" aria-hidden="true"></div>
-            <img
-              src="assets/Radar.png"
-              alt="Radar de las Esferas del Dragón"
-              class="radar-image">
-            <span class="radar-ping radar-ping-1" aria-hidden="true"></span>
-            <span class="radar-ping radar-ping-2" aria-hidden="true"></span>
-            <span class="radar-ping radar-ping-3" aria-hidden="true"></span>
-          </div>
-
-          <div class="location-radar-copy">
-            <p class="section-tag">Ubicación detectada</p>
-            <h3>Adolfo Ruiz Cortines 11</h3>
-            <p>
-              Presidentes, Álvaro Obregón, 01290 Ciudad de México, CDMX
-            </p>
-
-            <div class="dress-code-pill">
-              <span>Dress code</span>
-              <strong>Rosa, azul, naranja o tonos neutros</strong>
-            </div>
-
-            <a
-              class="btn btn-primary"
-              href="https://www.google.com/maps/search/?api=1&query=Adolfo%20Ruiz%20Cortines%2011%2C%20Presidentes%2C%20%C3%81lvaro%20Obreg%C3%B3n%2C%2001290%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX"
-              target="_blank"
-              rel="noopener noreferrer">
-              Abrir ubicación
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section countdown-section" id="contador">
-      <div class="container countdown-layout">
-        <div class="countdown-copy reveal">
-          <p class="section-tag">El gran día se acerca</p>
-          <h2>Cuenta regresiva</h2>
-          <p>Cada segundo nos acerca al momento en que conoceremos al nuevo integrante.</p>
-        </div>
-
-        <div class="countdown reveal">
-          <div><strong id="days">00</strong><span>Días</span></div>
-          <div><strong id="hours">00</strong><span>Horas</span></div>
-          <div><strong id="minutes">00</strong><span>Minutos</span></div>
-          <div><strong id="seconds">00</strong><span>Segundos</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section experience-section" id="experiencia">
-      <div class="experience-decor" aria-hidden="true">
-        <span class="experience-cloud experience-cloud-1"></span>
-        <span class="experience-cloud experience-cloud-2"></span>
-        <span class="experience-ball experience-ball-1">★</span>
-        <span class="experience-ball experience-ball-2">★★</span>
-        <span class="experience-ball experience-ball-3">★★★</span>
-      </div>
-
-      <div class="container">
-        <header class="section-header reveal">
-          <p class="section-tag">Un día para recordar</p>
-          <h2>Lo que viviremos juntos</h2>
-          <p>
-            No queremos medir esta aventura por horarios, sino por todos los momentos
-            que compartiremos con ustedes.
-          </p>
-        </header>
-
-        <div class="experience-grid">
-          <article class="experience-card reveal">
-            <div class="experience-icon">🎈</div>
-            <h3>Baby Shower</h3>
-            <p>Una celebración llena de cariño para recibir al nuevo integrante de la familia.</p>
-          </article>
-
-          <article class="experience-card reveal">
-            <div class="experience-icon">🎁</div>
-            <h3>Sorpresas</h3>
-            <p>Momentos especiales, detalles y actividades preparadas con mucho amor.</p>
-          </article>
-
-          <article class="experience-card reveal">
-            <div class="experience-icon">🐉</div>
-            <h3>Gran revelación</h3>
-            <p>Descubriremos juntos si nuestra aventura se pinta de rosa o de azul.</p>
-          </article>
-
-          <article class="experience-card reveal">
-            <div class="experience-icon">📸</div>
-            <h3>Recuerdos</h3>
-            <p>Fotos, sonrisas y momentos inolvidables junto a Gloria y Anthar.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-    <section class="section gallery-section" id="galeria">
-      <div class="container">
-        <header class="section-header reveal">
-          <p class="section-tag">Recuerdos del gran día</p>
-          <h2>Nuestra galería</h2>
-          <p>
-            Después del evento iremos agregando aquí los momentos más especiales
-            del Baby Shower de Gloria y Anthar.
-          </p>
-        </header>
-
-        <div class="gallery-status reveal" id="galleryStatus">
-          Las fotografías estarán disponibles después del evento.
-        </div>
-
-        <div class="gallery-grid gallery-grid-auto" id="galleryGrid" aria-live="polite"></div>
-      </div>
-    </section>
-<section class="section teams" id="equipos">
-      <div class="container">
-        <header class="section-header light reveal">
-          <p class="section-tag">Haz tu predicción</p>
-          <h2>¿Pequeña guerrera o pequeño saiyajin?</h2>
-          <p>
-            Elige una opción. Tu respuesta quedará guardada y se enviará
-            automáticamente cuando confirmes tu asistencia.
-          </p>
-        </header>
-
-        <div class="prediction-grid prediction-grid-images">
-          <button
-            class="prediction-character prediction-character-pink reveal"
-            type="button"
-            data-prediction="Pequeña guerrera"
-            aria-pressed="false">
-            <span class="prediction-aura prediction-aura-pink"></span>
-
-            <span class="prediction-image-frame character-card pink-card">
+    </header>
+  
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-ball hero-ball-1">★</div>
+        <div class="hero-ball hero-ball-2">★★</div>
+        <div class="hero-ball hero-ball-3">★★★</div>
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+  
+        <div class="hero-grid container">
+          <article class="character reveal">
+            <div class="aura pink-aura"></div>
+            <div class="character-card pink-card">
               <img src="assets/Milk.png" alt="Milk bebé">
-            </span>
-
-            <small>Creo que será una</small>
-            <strong>Pequeña guerrera</strong>
-            <span class="prediction-action">Elegir a Milk</span>
-          </button>
-
-          <div class="versus reveal">VS</div>
-
-          <button
-            class="prediction-character prediction-character-blue reveal"
-            type="button"
-            data-prediction="Pequeño saiyajin"
-            aria-pressed="false">
-            <span class="prediction-aura prediction-aura-blue"></span>
-
-            <span class="prediction-image-frame character-card blue-card">
-              <img src="assets/Goku.png" alt="Goku bebé">
-            </span>
-
-            <small>Creo que será un</small>
-            <strong>Pequeño saiyajin</strong>
-            <span class="prediction-action">Elegir a Goku</span>
-          </button>
-        </div>
-
-        <div class="prediction-confirmation" id="predictionConfirmation" aria-live="polite">
-          Aún no has elegido tu predicción.
-        </div>
-      </div>
-    </section>
-<section class="section wishes-section" id="regalos">
-      <div class="wishes-sky" aria-hidden="true">
-        <span class="wish-cloud wish-cloud-1"></span>
-        <span class="wish-cloud wish-cloud-2"></span>
-        <span class="wish-cloud wish-cloud-3"></span>
-      </div>
-
-      <div class="container">
-        <header class="section-header wishes-heading reveal">
-          <p class="section-tag">Nuestros deseos</p>
-          <h2>Las mesas de regalos</h2>
-          <p>Toca a Sheng Long para revelar los deseos de Gloria y Anthar.</p>
-        </header>
-
-        <div class="shenlong-scene shenlong-scene-centered reveal">
-          <button
-            class="shenlong-button"
-            id="shenlongButton"
-            type="button"
-            aria-expanded="false"
-            aria-controls="giftWishes">
-
-            <span class="shenlong-glow" aria-hidden="true"></span>
-
-            <img
-              src="assets/Sheng%20Long.png"
-              alt="Sheng Long de Baby Shower"
-              class="shenlong-main-image">
-
-            <span class="front-cloud front-cloud-left" aria-hidden="true"></span>
-            <span class="front-cloud front-cloud-right" aria-hidden="true"></span>
-
-            <span class="shenlong-instruction">
-              Toca a Sheng Long para revelar los deseos
-            </span>
-          </button>
-
-          <div class="gift-wishes" id="giftWishes" hidden>
-            <a
-              href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60020362"
-              class="btn btn-primary"
-              target="_blank"
-              rel="noopener noreferrer">
-              Mesa Liverpool
-            </a>
-
-            <a
-              href="https://www.amazon.com.mx/baby-reg/gloriagarca-varela-septiembre-2026-ciudaddemexico/2JXGO804OW5CI"
-              class="btn btn-secondary"
-              target="_blank"
-              rel="noopener noreferrer">
-              Mesa Amazon
-            </a>
+            </div>
+            <div class="team-label pink-label">¿Pequeña guerrera?</div>
+          </article>
+  
+          <div class="hero-copy reveal">
+            <p class="kicker">El deseo más grande está por cumplirse</p>
+            <h2>¿Será <span class="pink-text">niña</span><br>o <span class="blue-text">niño</span>?</h2>
+            <p>
+              Queremos compartir contigo un día lleno de amor, juegos,
+              sorpresas y muchísima energía.
+            </p>
+  
+            <div class="date-pill">
+              <span>Sábado</span>
+              <strong>15 · Agosto · 2026</strong>
+              <span>12:00 PM</span>
+            </div>
+  
+            <div class="hero-buttons">
+              <a href="#confirmar" class="btn btn-primary">Confirmar asistencia</a>
+              <a href="#detalles" class="btn btn-glass">Ver detalles</a>
+            </div>
           </div>
-
-          <p class="wish-message" id="wishMessage" aria-live="polite"></p>
+  
+          <article class="character reveal">
+            <div class="aura blue-aura"></div>
+            <div class="character-card blue-card">
+              <img src="assets/Goku.png" alt="Goku bebé">
+            </div>
+            <div class="team-label blue-label">¿Pequeño saiyajin?</div>
+          </article>
         </div>
-      </div>
-    </section>
-<section class="section rsvp" id="confirmar">
-      <div class="container rsvp-grid">
-        <div class="rsvp-copy reveal">
-          <p class="section-tag">Confirma tu participación</p>
-          <h2>Queremos vivir esta aventura contigo</h2>
-          <p>Completa tus datos. Tu predicción elegida arriba se agregará automáticamente al mensaje de WhatsApp.</p>
+      </section>
+  
+      <section class="section welcome">
+        <div class="container">
+          <div class="capsule reveal">
+            <p class="section-tag">Mensaje de los futuros papás</p>
+            <h2>Una sorpresa muy especial</h2>
+            <p>
+              Nuestra familia está por vivir una de sus aventuras más importantes.
+              Nos encantará que seas parte del momento en que descubriremos quién viene en camino.
+            </p>
+            <strong>Gloria & Anthar</strong>
+          </div>
         </div>
-
-        <form id="rsvpForm" class="rsvp-form reveal">
-          <input id="hiddenPrediction" type="hidden" name="prediction" value="">
-          <input id="hiddenPrediction" type="hidden" name="prediction" value="">
-          <label>
-            Tu nombre
-            <input id="guestName" type="text" required placeholder="Escribe tu nombre">
-          </label>
-
-          <label>
-            Número de asistentes
-            <select id="guestCount">
-              <option value="1">1 persona</option>
-              <option value="2">2 personas</option>
-              <option value="3">3 personas</option>
-              <option value="4">4 personas</option>
-              <option value="5">5 personas</option>
-            </select>
-          </label>
-<label>
-            Mensaje
-            <textarea id="guestMessage" rows="4" placeholder="Mensaje opcional"></textarea>
-          </label>
-
-          <button type="submit" class="btn btn-primary full">Confirmar por WhatsApp</button>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="dragon-ball footer-ball"><span>★★★★</span></div>
-    <h2>Nuestra aventura apenas comienza</h2>
-    <p>Gracias por acompañar a Gloria y Anthar en este Baby Shower y revelación de género.</p>
-  </footer>
-
-  <canvas id="effects"></canvas>
-
-  <audio id="music" loop preload="metadata">
-    <source src="assets/Dragon%20Ball%20Z.mp3" type="audio/mpeg">
-  </audio>
-
-
-  <script>
-    // Seguro de carga: nunca dejar la pantalla bloqueada.
-    window.setTimeout(function () {
-      var loader = document.getElementById("loader");
-      if (loader) loader.classList.add("hide");
-    }, 2500);
-  </script>
-
-  <script src="app.js"></script>
-</body>
-</html>
+      </section>
+  
+      <section class="section details radar-details" id="detalles">
+        <div class="container">
+          <header class="section-header radar-heading reveal">
+            <p class="section-tag">Coordenadas de la misión</p>
+            <h2>Detalles del evento</h2>
+            <p>Todo lo necesario para acompañarnos en esta celebración.</p>
+          </header>
+  
+          <div class="event-highlight-grid">
+            <article class="event-highlight event-highlight-date reveal">
+              <small>Fecha</small>
+              <strong>15 de agosto de 2026</strong>
+            </article>
+  
+            <article class="event-highlight event-highlight-time reveal">
+              <small>Hora</small>
+              <strong>12:00 PM</strong>
+            </article>
+          </div>
+  
+          <div class="location-radar-card reveal">
+            <div class="location-radar-visual">
+              <div class="radar-energy" aria-hidden="true"></div>
+              <img
+                src="assets/Radar.png"
+                alt="Radar de las Esferas del Dragón"
+                class="radar-image">
+              <span class="radar-ping radar-ping-1" aria-hidden="true"></span>
+              <span class="radar-ping radar-ping-2" aria-hidden="true"></span>
+              <span class="radar-ping radar-ping-3" aria-hidden="true"></span>
+            </div>
+  
+            <div class="location-radar-copy">
+              <p class="section-tag">Ubicación detectada</p>
+              <h3>Adolfo Ruiz Cortines 11</h3>
+              <p>
+                Presidentes, Álvaro Obregón, 01290 Ciudad de México, CDMX
+              </p>
+  
+              <div class="dress-code-pill">
+                <span>Dress code</span>
+                <strong>Rosa, azul, naranja o tonos neutros</strong>
+              </div>
+  
+              <a
+                class="btn btn-primary"
+                href="https://www.google.com/maps/search/?api=1&query=Adolfo%20Ruiz%20Cortines%2011%2C%20Presidentes%2C%20%C3%81lvaro%20Obreg%C3%B3n%2C%2001290%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX"
+                target="_blank"
+                rel="noopener noreferrer">
+                Abrir ubicación
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <section class="section countdown-section" id="contador">
+        <div class="container countdown-layout">
+          <div class="countdown-copy reveal">
+            <p class="section-tag">El gran día se acerca</p>
+            <h2>Cuenta regresiva</h2>
+            <p>Cada segundo nos acerca al momento en que conoceremos al nuevo integrante.</p>
+          </div>
+  
+          <div class="countdown reveal">
+            <div><strong id="days">00</strong><span>Días</span></div>
+            <div><strong id="hours">00</strong><span>Horas</span></div>
+            <div><strong id="minutes">00</strong><span>Minutos</span></div>
+            <div><strong id="seconds">00</strong><span>Segundos</span></div>
+          </div>
+        </div>
+      </section>
+  
+      <section class="section experience-section" id="experiencia">
+        <div class="experience-decor" aria-hidden="true">
+          <span class="experience-cloud experience-cloud-1"></span>
+          <span class="experience-cloud experience-cloud-2"></span>
+          <span class="experience-ball experience-ball-1">★</span>
+          <span class="experience-ball experience-ball-2">★★</span>
+          <span class="experience-ball experience-ball-3">★★★</span>
+        </div>
+  
+        <div class="container">
+          <header class="section-header reveal">
+            <p class="section-tag">Un día para recordar</p>
+            <h2>Lo que viviremos juntos</h2>
+            <p>
+              No queremos medir esta aventura por horarios, sino por todos los momentos
+              que compartiremos con ustedes.
+            </p>
+          </header>
+  
+          <div class="experience-grid">
+            <article class="experience-card reveal">
+              <div class="experience-icon">🎈</div>
+              <h3>Baby Shower</h3>
+              <p>Una celebración llena de cariño para recibir al nuevo integrante de la familia.</p>
+            </article>
+  
+            <article class="experience-card reveal">
+              <div class="experience-icon">🎁</div>
+              <h3>Sorpresas</h3>
+              <p>Momentos especiales, detalles y actividades preparadas con mucho amor.</p>
+            </article>
+  
+            <article class="experience-card reveal">
+              <div class="experience-icon">🐉</div>
+              <h3>Gran revelación</h3>
+              <p>Descubriremos juntos si nuestra aventura se pinta de rosa o de azul.</p>
+            </article>
+  
+            <article class="experience-card reveal">
+              <div class="experience-icon">📸</div>
+              <h3>Recuerdos</h3>
+              <p>Fotos, sonrisas y momentos inolvidables junto a Gloria y Anthar.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section gallery-section" id="galeria">
+        <div class="container">
+          <header class="section-header reveal">
+            <p class="section-tag">Recuerdos del gran día</p>
+            <h2>Nuestra galería</h2>
+            <p>
+              Después del evento iremos agregando aquí los momentos más especiales
+              del Baby Shower de Gloria y Anthar.
+            </p>
+          </header>
+  
+          <div class="gallery-status reveal" id="galleryStatus">
+            Las fotografías estarán disponibles después del evento.
+          </div>
+  
+          <div class="gallery-grid gallery-grid-auto" id="galleryGrid" aria-live="polite"></div>
+        </div>
+      </section>
+  <section class="section teams prediction-hero-section" id="equipos">
+        <div class="container">
+          <header class="section-header light reveal">
+            <p class="section-tag">Haz tu predicción</p>
+            <h2>¿Pequeña guerrera o pequeño saiyajin?</h2>
+            <p>
+              Elige una opción. Tu respuesta quedará guardada y se enviará
+              automáticamente cuando confirmes tu asistencia.
+            </p>
+          </header>
+  
+          <div class="prediction-hero-grid">
+            <button
+              class="prediction-hero-option prediction-hero-pink reveal"
+              type="button"
+              data-prediction="Pequeña guerrera"
+              aria-pressed="false">
+  
+              <span class="prediction-hero-aura prediction-hero-aura-pink"></span>
+  
+              <span class="prediction-hero-card prediction-hero-card-pink">
+                <img src="assets/Milk.png" alt="Milk bebé">
+              </span>
+  
+              <span class="prediction-hero-copy">
+                <small>Creo que será una</small>
+                <strong>Pequeña guerrera</strong>
+                <span class="prediction-action">Elegir a Milk</span>
+              </span>
+            </button>
+  
+            <div class="prediction-hero-vs reveal">VS</div>
+  
+            <button
+              class="prediction-hero-option prediction-hero-blue reveal"
+              type="button"
+              data-prediction="Pequeño saiyajin"
+              aria-pressed="false">
+  
+              <span class="prediction-hero-aura prediction-hero-aura-blue"></span>
+  
+              <span class="prediction-hero-card prediction-hero-card-blue">
+                <img src="assets/Goku.png" alt="Goku bebé">
+              </span>
+  
+              <span class="prediction-hero-copy">
+                <small>Creo que será un</small>
+                <strong>Pequeño saiyajin</strong>
+                <span class="prediction-action">Elegir a Goku</span>
+              </span>
+            </button>
+          </div>
+  
+          <div class="prediction-confirmation" id="predictionConfirmation" aria-live="polite">
+            Aún no has elegido tu predicción.
+          </div>
+        </div>
+      </section>
+  <section class="section wishes-section" id="regalos">
+        <div class="wishes-sky" aria-hidden="true">
+          <span class="wish-cloud wish-cloud-1"></span>
+          <span class="wish-cloud wish-cloud-2"></span>
+          <span class="wish-cloud wish-cloud-3"></span>
+        </div>
+  
+        <div class="container">
+          <header class="section-header wishes-heading reveal">
+            <p class="section-tag">Nuestros deseos</p>
+            <h2>Las mesas de regalos</h2>
+            <p>Toca a Sheng Long para revelar los deseos de Gloria y Anthar.</p>
+          </header>
+  
+          <div class="shenlong-scene shenlong-scene-centered reveal">
+            <button
+              class="shenlong-button"
+              id="shenlongButton"
+              type="button"
+              aria-expanded="false"
+              aria-controls="giftWishes">
+  
+              <span class="shenlong-glow" aria-hidden="true"></span>
+  
+              <img
+                src="assets/Sheng%20Long.png"
+                alt="Sheng Long de Baby Shower"
+                class="shenlong-main-image">
+  
+              <span class="front-cloud front-cloud-left" aria-hidden="true"></span>
+              <span class="front-cloud front-cloud-right" aria-hidden="true"></span>
+  
+              <span class="shenlong-instruction">
+                Toca a Sheng Long para revelar los deseos
+              </span>
+            </button>
+  
+            <div class="gift-wishes" id="giftWishes" hidden>
+              <a
+                href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60020362"
+                class="btn btn-primary"
+                target="_blank"
+                rel="noopener noreferrer">
+                Mesa Liverpool
+              </a>
+  
+              <a
+                href="https://www.amazon.com.mx/baby-reg/gloriagarca-varela-septiembre-2026-ciudaddemexico/2JXGO804OW5CI"
+                class="btn btn-secondary"
+                target="_blank"
+                rel="noopener noreferrer">
+                Mesa Amazon
+              </a>
+            </div>
+  
+            <p class="wish-message" id="wishMessage" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+  <section class="section rsvp" id="confirmar">
+        <div class="container rsvp-grid">
+          <div class="rsvp-copy reveal">
+            <p class="section-tag">Confirma tu participación</p>
+            <h2>Queremos vivir esta aventura contigo</h2>
+            <p>Completa tus datos. Tu predicción elegida arriba se agregará automáticamente al mensaje de WhatsApp.</p>
+          </div>
+  
+          <form id="rsvpForm" class="rsvp-form reveal">
+            <input id="hiddenPrediction" type="hidden" name="prediction" value="">
+            <input id="hiddenPrediction" type="hidden" name="prediction" value="">
+            <label>
+              Tu nombre
+              <input id="guestName" type="text" required placeholder="Escribe tu nombre">
+            </label>
+  
+            <label>
+              Número de asistentes
+              <select id="guestCount">
+                <option value="1">1 persona</option>
+                <option value="2">2 personas</option>
+                <option value="3">3 personas</option>
+                <option value="4">4 personas</option>
+                <option value="5">5 personas</option>
+              </select>
+            </label>
+  <label>
+              Mensaje
+              <textarea id="guestMessage" rows="4" placeholder="Mensaje opcional"></textarea>
+            </label>
+  
+            <button type="submit" class="btn btn-primary full">Confirmar por WhatsApp</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  
+    <footer>
+      <div class="dragon-ball footer-ball"><span>★★★★</span></div>
+      <h2>Nuestra aventura apenas comienza</h2>
+      <p>Gracias por acompañar a Gloria y Anthar en este Baby Shower y revelación de género.</p>
+    </footer>
+  
+    <canvas id="effects"></canvas>
+  
+    <audio id="music" loop preload="metadata">
+      <source src="assets/Dragon%20Ball%20Z.mp3" type="audio/mpeg">
+    </audio>
+  
+  
+    <script>
+      // Seguro de carga: nunca dejar la pantalla bloqueada.
+      window.setTimeout(function () {
+        var loader = document.getElementById("loader");
+        if (loader) loader.classList.add("hide");
+      }, 2500);
+    </script>
+  
+    <script src="app.js"></script>
+  </body>
+  </html>

@@ -123,64 +123,48 @@
       <div class="container">
         <header class="section-header radar-heading reveal">
           <p class="section-tag">Coordenadas de la misión</p>
-          <h2>Radar del evento</h2>
-          <p>
-            El radar ha localizado el punto exacto donde comenzará nuestra nueva aventura.
-          </p>
+          <h2>Detalles del evento</h2>
+          <p>Todo lo necesario para acompañarnos en esta celebración.</p>
         </header>
 
-        <div class="radar-layout">
-          <div class="radar-visual reveal">
-            <div class="radar-energy" aria-hidden="true"></div>
+        <div class="event-highlight-grid">
+          <article class="event-highlight event-highlight-date reveal">
+            <small>Fecha</small>
+            <strong>15 de agosto de 2026</strong>
+          </article>
 
+          <article class="event-highlight event-highlight-time reveal">
+            <small>Hora</small>
+            <strong>12:00 PM</strong>
+          </article>
+        </div>
+
+        <div class="location-radar-card reveal">
+          <div class="location-radar-visual">
+            <div class="radar-energy" aria-hidden="true"></div>
             <img
               src="assets/Radar.png"
               alt="Radar de las Esferas del Dragón"
               class="radar-image">
-
             <span class="radar-ping radar-ping-1" aria-hidden="true"></span>
             <span class="radar-ping radar-ping-2" aria-hidden="true"></span>
             <span class="radar-ping radar-ping-3" aria-hidden="true"></span>
           </div>
 
-          <div class="radar-information">
-            <article class="radar-data radar-data-date reveal">
-              <span class="radar-data-code">01</span>
-              <div>
-                <small>Fecha localizada</small>
-                <h3>15 de agosto de 2026</h3>
-              </div>
-            </article>
+          <div class="location-radar-copy">
+            <p class="section-tag">Ubicación detectada</p>
+            <h3>Adolfo Ruiz Cortines 11</h3>
+            <p>
+              Presidentes, Álvaro Obregón, 01290 Ciudad de México, CDMX
+            </p>
 
-            <article class="radar-data reveal">
-              <span class="radar-data-code">02</span>
-              <div>
-                <small>Hora de encuentro</small>
-                <h3>12:00 PM</h3>
-              </div>
-            </article>
-
-            <article class="radar-data reveal">
-              <span class="radar-data-code">03</span>
-              <div>
-                <small>Ubicación detectada</small>
-                <h3>Adolfo Ruiz Cortines 11</h3>
-                <p>
-                  Presidentes, Álvaro Obregón, 01290 Ciudad de México, CDMX
-                </p>
-              </div>
-            </article>
-
-            <article class="radar-data reveal">
-              <span class="radar-data-code">04</span>
-              <div>
-                <small>Código de vestimenta</small>
-                <h3>Rosa, azul, naranja o tonos neutros</h3>
-              </div>
-            </article>
+            <div class="dress-code-pill">
+              <span>Dress code</span>
+              <strong>Rosa, azul, naranja o tonos neutros</strong>
+            </div>
 
             <a
-              class="btn btn-primary radar-location-button reveal"
+              class="btn btn-primary"
               href="https://www.google.com/maps/search/?api=1&query=Adolfo%20Ruiz%20Cortines%2011%2C%20Presidentes%2C%20%C3%81lvaro%20Obreg%C3%B3n%2C%2001290%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX"
               target="_blank"
               rel="noopener noreferrer">
@@ -332,13 +316,11 @@
       <div class="container">
         <header class="section-header wishes-heading reveal">
           <p class="section-tag">Nuestros deseos</p>
-          <h2>Sheng Long guarda las mesas de regalos</h2>
-          <p>
-            Toca a Sheng Long para revelar los deseos de Gloria y Anthar.
-          </p>
+          <h2>Las mesas de regalos</h2>
+          <p>Toca a Sheng Long para revelar los deseos de Gloria y Anthar.</p>
         </header>
 
-        <div class="shenlong-scene reveal">
+        <div class="shenlong-scene shenlong-scene-centered reveal">
           <button
             class="shenlong-button"
             id="shenlongButton"

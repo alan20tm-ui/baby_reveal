@@ -1168,4 +1168,20 @@ footer{padding:85px 20px;color:#fff;text-align:center;background:var(--navy)}.fo
   .prediction-image-frame {
     height: 295px !important;
   }
+/* Quitar visualmente el fondo blanco de Milk y Goku */
+.prediction-character,
+.prediction-image-frame {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.prediction-image-frame img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 24px 28px rgba(0, 0, 0, .28));
+}
 }

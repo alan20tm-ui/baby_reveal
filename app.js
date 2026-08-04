@@ -2,53 +2,38 @@
   "use strict";
 
   const CONFIG = {
-    eventDate: "2026-08-15T12:00:00-06:00",
-    whatsappNumber: "5215529134341",
-    eventName: "Baby Shower y revelación de género de Gloria y Anthar"
+    eventDate: "2027-06-12T17:00:00-06:00",
+    whatsappNumber: "5215541946413",
+    eventName: "Baby Shower y Gender Reveal",
+    giftText: "Tu presencia es nuestro mejor regalo. Para más información comunícate con los futuros papás."
   };
 
-  const $ = (selector, root = document) => root.querySelector(selector);
-  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
-
-  const loader = $("#loader");
-  const intro = $("#intro");
-  const startBtn = $("#startBtn");
-  const music = $("#music");
-  const musicBtn = $("#musicBtn");
-  const menuBtn = $("#menuBtn");
-  const navMenu = $("#navMenu");
-  const canvas = $("#effects");
+  const loader = document.getElementById("loader");
+  const intro = document.getElementById("intro");
+  const startBtn = document.getElementById("startBtn");
+  const music = document.getElementById("music");
+  const musicBtn = document.getElementById("musicBtn");
+  const menuBtn = document.getElementById("menuBtn");
+  const navMenu = document.getElementById("navMenu");
+  const energyBtn = document.getElementById("energyBtn");
 
   let musicPlaying = false;
-  let selectedPrediction =
-    sessionStorage.getItem("babyRevealPrediction") || "";
 
-  function hideLoader() {
-    loader?.classList.add("hide");
-  }
-
-  // No depender únicamente de window.load.
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", hideLoader, { once: true });
-  } else {
-    hideLoader();
-  }
-
-  window.addEventListener("load", hideLoader, { once: true });
-  window.setTimeout(hideLoader, 1800);
+  window.addEventListener("load", () => {
+    setTimeout(() => loader?.classList.add("hide"), 500);
+  });
 
   async function playMusic() {
     if (!music) return;
 
     try {
-      music.volume = 0.36;
+      music.volume = 0.38;
       await music.play();
       musicPlaying = true;
       if (musicBtn) musicBtn.textContent = "♫";
     } catch (error) {
       musicPlaying = false;
       if (musicBtn) musicBtn.textContent = "×";
-      console.info("La música requiere interacción del usuario.", error);
     }
   }
 
@@ -62,11 +47,10 @@
   startBtn?.addEventListener("click", async () => {
     intro?.classList.add("hide");
     document.body.classList.remove("locked");
-
     await playMusic();
     burst(window.innerWidth / 2, window.innerHeight * 0.45, 150);
 
-    window.setTimeout(() => intro?.remove(), 900);
+    setTimeout(() => intro?.remove(), 900);
   });
 
   musicBtn?.addEventListener("click", () => {
@@ -77,258 +61,152 @@
     navMenu?.classList.toggle("open");
   });
 
-  $$("#navMenu a").forEach(link => {
-    link.addEventListener("click", () => navMenu?.classList.remove("open"));
+  navMenu?.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => navMenu.classList.remove("open"));
   });
 
-  // Animaciones al hacer scroll.
-  const revealElements = $$(".reveal");
+  const revealElements = document.querySelectorAll(".reveal");
 
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.12,
-      rootMargin: "0px 0px -30px 0px"
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
     });
+  }, { threshold: 0.15 });
 
-    revealElements.forEach(element => observer.observe(element));
-  } else {
-    revealElements.forEach(element => element.classList.add("visible"));
-  }
+  revealElements.forEach(element => observer.observe(element));
 
-  // Cuenta regresiva.
   const targetDate = new Date(CONFIG.eventDate).getTime();
 
   function updateCountdown() {
     const distance = Math.max(0, targetDate - Date.now());
 
-    const values = {
-      days: Math.floor(distance / 86400000),
-      hours: Math.floor((distance % 86400000) / 3600000),
-      minutes: Math.floor((distance % 3600000) / 60000),
-      seconds: Math.floor((distance % 60000) / 1000)
-    };
+    const days = Math.floor(distance / 86400000);
+    const hours = Math.floor((distance % 86400000) / 3600000);
+    const minutes = Math.floor((distance % 3600000) / 60000);
+    const seconds = Math.floor((distance % 60000) / 1000);
 
-    Object.entries(values).forEach(([id, value]) => {
-      const element = document.getElementById(id);
-      if (element) element.textContent = String(value).padStart(2, "0");
-    });
+    document.getElementById("days").textContent = String(days).padStart(2, "0");
+    document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+    document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+    document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
   }
 
   updateCountdown();
-  window.setInterval(updateCountdown, 1000);
+  setInterval(updateCountdown, 1000);
 
-  // Predicción elegida arriba; se envía oculta en WhatsApp.
-  const predictionButtons = $$("[data-prediction]");
-  const hiddenPrediction = $("#hiddenPrediction");
-  const predictionConfirmation = $("#predictionConfirmation");
+  const votes = {
+    milk: Number(localStorage.getItem("milkVotes") || 0),
+    goku: Number(localStorage.getItem("gokuVotes") || 0)
+  };
 
-  function renderPrediction() {
-    predictionButtons.forEach(button => {
-      const isSelected = button.dataset.prediction === selectedPrediction;
-      button.classList.toggle("selected", isSelected);
-      button.setAttribute("aria-pressed", String(isSelected));
-
-      const action = $(".prediction-action", button);
-      if (action) {
-        action.textContent = isSelected
-          ? "Predicción seleccionada"
-          : button.dataset.prediction === "Pequeña guerrera"
-            ? "Elegir a Milk"
-            : "Elegir a Goku";
-      }
-    });
-
-    if (hiddenPrediction) hiddenPrediction.value = selectedPrediction;
-
-    if (predictionConfirmation) {
-      predictionConfirmation.textContent = selectedPrediction
-        ? `Tu predicción es: ${selectedPrediction}. Para cambiarla, selecciona la otra opción.`
-        : "Aún no has elegido tu predicción.";
-    }
+  function renderVotes() {
+    document.getElementById("milkVotes").textContent = votes.milk;
+    document.getElementById("gokuVotes").textContent = votes.goku;
   }
 
-  predictionButtons.forEach(button => {
+  document.querySelectorAll("[data-team]").forEach(button => {
     button.addEventListener("click", () => {
-      selectedPrediction = button.dataset.prediction || "";
-      sessionStorage.setItem("babyRevealPrediction", selectedPrediction);
-      renderPrediction();
+      const team = button.dataset.team;
+      votes[team] += 1;
+      localStorage.setItem(`${team}Votes`, String(votes[team]));
+      renderVotes();
+
+      document.getElementById("voteMessage").textContent =
+        team === "milk"
+          ? "¡Tu energía se unió al Equipo Milk!"
+          : "¡Tu energía se unió al Equipo Goku!";
 
       const rect = button.getBoundingClientRect();
       burst(
         rect.left + rect.width / 2,
         rect.top + rect.height / 2,
-        110,
-        selectedPrediction === "Pequeña guerrera"
+        90,
+        team === "milk"
           ? ["#ff5aa7", "#ffd0e4", "#ffd84a"]
           : ["#3fa9ff", "#d0efff", "#ffd84a"]
       );
     });
   });
 
-  renderPrediction();
+  renderVotes();
 
-  // Sheng Long revela las mesas de regalos.
-  const shenlongButton = $("#shenlongButton");
-  const giftWishes = $("#giftWishes");
-  const wishMessage = $("#wishMessage");
+  const balls = [...document.querySelectorAll(".progress-ball")];
 
-  shenlongButton?.addEventListener("click", () => {
-    if (!giftWishes) return;
+  function updateBalls() {
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+    const activeCount = Math.max(1, Math.ceil(progress * balls.length));
 
-    const isOpen = !giftWishes.hasAttribute("hidden");
-
-    if (isOpen) {
-      giftWishes.setAttribute("hidden", "");
-      shenlongButton.setAttribute("aria-expanded", "false");
-      shenlongButton.classList.remove("awakened");
-      if (wishMessage) wishMessage.textContent = "";
-      return;
-    }
-
-    giftWishes.removeAttribute("hidden");
-    shenlongButton.setAttribute("aria-expanded", "true");
-    shenlongButton.classList.add("awakened");
-
-    if (wishMessage) {
-      wishMessage.textContent =
-        "¡Sheng Long ha revelado las mesas de regalos!";
-    }
-
-    const rect = shenlongButton.getBoundingClientRect();
-    burst(
-      rect.left + rect.width / 2,
-      Math.min(window.innerHeight - 90, rect.top + rect.height / 2),
-      190,
-      ["#ffd84a", "#ff8a00", "#83e37d", "#ffffff"]
-    );
-  });
-
-  // Galería automática desde assets/galeria en GitHub.
-  const galleryGrid = $("#galleryGrid");
-  const galleryStatus = $("#galleryStatus");
-
-  async function loadGallery() {
-    if (!galleryGrid || !galleryStatus) return;
-
-    const apiUrl =
-      "https://api.github.com/repos/alan20tm-ui/baby_reveal/contents/assets/galeria";
-
-    try {
-      const response = await fetch(apiUrl, {
-        headers: { Accept: "application/vnd.github+json" }
-      });
-
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-
-      const files = await response.json();
-      const images = files
-        .filter(file => /\.(png|jpe?g|webp|gif)$/i.test(file.name))
-        .sort((a, b) => a.name.localeCompare(b.name, "es"));
-
-      if (!images.length) {
-        galleryStatus.textContent =
-          "Las fotografías estarán disponibles después del evento.";
-        return;
-      }
-
-      galleryGrid.innerHTML = "";
-      galleryStatus.textContent =
-        `${images.length} recuerdo${images.length === 1 ? "" : "s"} disponible${images.length === 1 ? "" : "s"}.`;
-
-      images.forEach((file, index) => {
-        const figure = document.createElement("figure");
-        figure.className = "event-photo";
-
-        const image = document.createElement("img");
-        image.src = file.download_url;
-        image.alt =
-          `Recuerdo ${index + 1} del Baby Shower de Gloria y Anthar`;
-        image.loading = "lazy";
-
-        figure.appendChild(image);
-        galleryGrid.appendChild(figure);
-      });
-    } catch (error) {
-      galleryStatus.textContent =
-        "Las fotografías estarán disponibles después del evento.";
-      console.info("Galería aún no disponible.", error);
-    }
+    balls.forEach((ball, index) => {
+      ball.classList.toggle("active", index < activeCount);
+    });
   }
 
-  loadGallery();
+  window.addEventListener("scroll", updateBalls, { passive: true });
+  updateBalls();
 
-  // Confirmación por WhatsApp.
-  $("#rsvpForm")?.addEventListener("submit", event => {
+  energyBtn?.addEventListener("click", () => {
+    const section = document.querySelector(".reveal-section");
+    section?.classList.add("flash");
+    burst(window.innerWidth / 2, window.innerHeight / 2, 240);
+
+    setTimeout(() => section?.classList.remove("flash"), 800);
+  });
+
+  document.getElementById("copyGift")?.addEventListener("click", async () => {
+    const status = document.getElementById("copyStatus");
+
+    try {
+      await navigator.clipboard.writeText(CONFIG.giftText);
+      status.textContent = "Información copiada.";
+    } catch {
+      status.textContent = CONFIG.giftText;
+    }
+  });
+
+  document.getElementById("rsvpForm")?.addEventListener("submit", event => {
     event.preventDefault();
 
-    const name = $("#guestName")?.value.trim() || "";
-    const count = $("#guestCount")?.value || "1";
-    const message = $("#guestMessage")?.value.trim() || "";
+    const name = document.getElementById("guestName").value.trim();
+    const count = document.getElementById("guestCount").value;
+    const message = document.getElementById("guestMessage").value.trim();
+    const prediction =
+      document.querySelector('input[name="prediction"]:checked')?.value ||
+      "Aún no lo sé";
 
-    if (!name) {
-      $("#guestName")?.focus();
-      return;
-    }
-
-    if (!selectedPrediction) {
-      alert(
-        "Antes de confirmar, elige arriba si crees que será pequeña guerrera o pequeño saiyajin."
-      );
-      $("#equipos")?.scrollIntoView({ behavior: "smooth" });
-      return;
-    }
+    if (!name) return;
 
     const text = [
-      "Hola Gloria y Anthar 👶🐉",
-      "",
-      `Soy ${name} y confirmo mi asistencia a su Baby Shower y revelación de género.`,
+      `Hola, soy ${name}.`,
+      `Confirmo mi asistencia a ${CONFIG.eventName}.`,
       `Asistentes: ${count}.`,
-      `Mi predicción: ${selectedPrediction}.`,
+      `Mi predicción: ${prediction}.`,
       message ? `Mensaje: ${message}` : ""
     ].filter(Boolean).join("\n");
 
-    const url =
-      `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(text)}`;
-
+    const url = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank", "noopener,noreferrer");
   });
 
-  // Partículas.
-  let ctx = null;
+  const canvas = document.getElementById("effects");
+  const ctx = canvas.getContext("2d");
   let particles = [];
   let animationFrame = null;
 
-  if (canvas) {
-    ctx = canvas.getContext("2d");
-  }
-
   function resizeCanvas() {
-    if (!canvas || !ctx) return;
-
     const ratio = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = Math.floor(window.innerWidth * ratio);
-    canvas.height = Math.floor(window.innerHeight * ratio);
+    canvas.width = window.innerWidth * ratio;
+    canvas.height = window.innerHeight * ratio;
     canvas.style.width = `${window.innerWidth}px`;
     canvas.style.height = `${window.innerHeight}px`;
     ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
   }
 
-  function burst(
-    x,
-    y,
-    count = 120,
-    colors = ["#ff5aa7", "#3fa9ff", "#ffd84a", "#ff8a00"]
-  ) {
-    if (!canvas || !ctx) return;
-
-    for (let index = 0; index < count; index += 1) {
+  function burst(x, y, count = 120, colors = ["#ff5aa7", "#3fa9ff", "#ffd84a", "#ff8a00"]) {
+    for (let i = 0; i < count; i += 1) {
       const angle = Math.random() * Math.PI * 2;
       const speed = 3 + Math.random() * 9;
 
@@ -349,32 +227,26 @@
   }
 
   function animate() {
-    if (!ctx) return;
-
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    particles = particles.filter(particle => particle.life > 0);
 
-    particles.forEach(particle => {
-      particle.vx *= 0.985;
-      particle.vy = particle.vy * 0.985 + particle.gravity;
-      particle.x += particle.vx;
-      particle.y += particle.vy;
-      particle.life -= particle.decay;
+    particles = particles.filter(p => p.life > 0);
 
-      ctx.globalAlpha = Math.max(0, particle.life);
-      ctx.fillStyle = particle.color;
-      ctx.fillRect(
-        particle.x,
-        particle.y,
-        particle.size,
-        particle.size * 0.65
-      );
+    particles.forEach(p => {
+      p.vx *= 0.985;
+      p.vy = p.vy * 0.985 + p.gravity;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.life -= p.decay;
+
+      ctx.globalAlpha = Math.max(0, p.life);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(p.x, p.y, p.size, p.size * 0.65);
     });
 
     ctx.globalAlpha = 1;
 
     if (particles.length) {
-      animationFrame = window.requestAnimationFrame(animate);
+      animationFrame = requestAnimationFrame(animate);
     } else {
       animationFrame = null;
     }

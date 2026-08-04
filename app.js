@@ -4,35 +4,51 @@
   const CONFIG = {
     eventDate: "2026-08-15T12:00:00-06:00",
     whatsappNumber: "5215529134341",
-    eventName: "Baby Shower y revelación de género de Gloria y Anthar",
-    giftText: "Tu presencia es nuestro mejor regalo. Para más información comunícate con los futuros papás."
+    eventName: "Baby Shower y revelación de género de Gloria y Anthar"
   };
 
-  const loader = document.getElementById("loader");
-  const intro = document.getElementById("intro");
-  const startBtn = document.getElementById("startBtn");
-  const music = document.getElementById("music");
-  const musicBtn = document.getElementById("musicBtn");
-  const menuBtn = document.getElementById("menuBtn");
-  const navMenu = document.getElementById("navMenu");
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+
+  const loader = $("#loader");
+  const intro = $("#intro");
+  const startBtn = $("#startBtn");
+  const music = $("#music");
+  const musicBtn = $("#musicBtn");
+  const menuBtn = $("#menuBtn");
+  const navMenu = $("#navMenu");
+  const canvas = $("#effects");
 
   let musicPlaying = false;
+  let selectedPrediction =
+    sessionStorage.getItem("babyRevealPrediction") || "";
 
-  window.addEventListener("load", () => {
-    setTimeout(() => loader?.classList.add("hide"), 500);
-  });
+  function hideLoader() {
+    loader?.classList.add("hide");
+  }
+
+  // No depender únicamente de window.load.
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", hideLoader, { once: true });
+  } else {
+    hideLoader();
+  }
+
+  window.addEventListener("load", hideLoader, { once: true });
+  window.setTimeout(hideLoader, 1800);
 
   async function playMusic() {
     if (!music) return;
 
     try {
-      music.volume = 0.38;
+      music.volume = 0.36;
       await music.play();
       musicPlaying = true;
       if (musicBtn) musicBtn.textContent = "♫";
     } catch (error) {
       musicPlaying = false;
       if (musicBtn) musicBtn.textContent = "×";
+      console.info("La música requiere interacción del usuario.", error);
     }
   }
 
@@ -46,10 +62,11 @@
   startBtn?.addEventListener("click", async () => {
     intro?.classList.add("hide");
     document.body.classList.remove("locked");
+
     await playMusic();
     burst(window.innerWidth / 2, window.innerHeight * 0.45, 150);
 
-    setTimeout(() => intro?.remove(), 900);
+    window.setTimeout(() => intro?.remove(), 900);
   });
 
   musicBtn?.addEventListener("click", () => {
@@ -60,75 +77,57 @@
     navMenu?.classList.toggle("open");
   });
 
-  navMenu?.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => navMenu.classList.remove("open"));
+  $$("#navMenu a").forEach(link => {
+    link.addEventListener("click", () => navMenu?.classList.remove("open"));
   });
 
-  const revealElements = document.querySelectorAll(".reveal");
+  // Animaciones al hacer scroll.
+  const revealElements = $$(".reveal");
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: "0px 0px -30px 0px"
     });
-  }, { threshold: 0.15 });
 
-  revealElements.forEach(element => observer.observe(element));
+    revealElements.forEach(element => observer.observe(element));
+  } else {
+    revealElements.forEach(element => element.classList.add("visible"));
+  }
 
+  // Cuenta regresiva.
   const targetDate = new Date(CONFIG.eventDate).getTime();
 
   function updateCountdown() {
     const distance = Math.max(0, targetDate - Date.now());
 
-    const days = Math.floor(distance / 86400000);
-    const hours = Math.floor((distance % 86400000) / 3600000);
-    const minutes = Math.floor((distance % 3600000) / 60000);
-    const seconds = Math.floor((distance % 60000) / 1000);
+    const values = {
+      days: Math.floor(distance / 86400000),
+      hours: Math.floor((distance % 86400000) / 3600000),
+      minutes: Math.floor((distance % 3600000) / 60000),
+      seconds: Math.floor((distance % 60000) / 1000)
+    };
 
-    document.getElementById("days").textContent = String(days).padStart(2, "0");
-    document.getElementById("hours").textContent = String(hours).padStart(2, "0");
-    document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
-    document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+    Object.entries(values).forEach(([id, value]) => {
+      const element = document.getElementById(id);
+      if (element) element.textContent = String(value).padStart(2, "0");
+    });
   }
 
   updateCountdown();
-  setInterval(updateCountdown, 1000);
+  window.setInterval(updateCountdown, 1000);
 
-
-      document.getElementById("voteMessage").textContent =
-        team === "milk"
-          ? "¡Tu energía se unió al Equipo Milk!"
-          : "¡Tu energía se unió al Equipo Goku!";
-
-      const rect = button.getBoundingClientRect();
-      burst(
-        rect.left + rect.width / 2,
-        rect.top + rect.height / 2,
-        90,
-        team === "milk"
-          ? ["#ff5aa7", "#ffd0e4", "#ffd84a"]
-          : ["#3fa9ff", "#d0efff", "#ffd84a"]
-      );
-    });
-  });
-
-  renderVotes();
-
-
-
-
-
-
-
-
-  // Predicción única elegida arriba.
-  const predictionButtons = [...document.querySelectorAll("[data-prediction]")];
-  const hiddenPrediction = document.getElementById("hiddenPrediction");
-  const predictionConfirmation = document.getElementById("predictionConfirmation");
-
-  let selectedPrediction = sessionStorage.getItem("babyRevealPrediction") || "";
+  // Predicción elegida arriba; se envía oculta en WhatsApp.
+  const predictionButtons = $$("[data-prediction]");
+  const hiddenPrediction = $("#hiddenPrediction");
+  const predictionConfirmation = $("#predictionConfirmation");
 
   function renderPrediction() {
     predictionButtons.forEach(button => {
@@ -136,17 +135,17 @@
       button.classList.toggle("selected", isSelected);
       button.setAttribute("aria-pressed", String(isSelected));
 
-      const action = button.querySelector(".prediction-action");
+      const action = $(".prediction-action", button);
       if (action) {
         action.textContent = isSelected
           ? "Predicción seleccionada"
-          : "Elegir esta opción";
+          : button.dataset.prediction === "Pequeña guerrera"
+            ? "Elegir a Milk"
+            : "Elegir a Goku";
       }
     });
 
-    if (hiddenPrediction) {
-      hiddenPrediction.value = selectedPrediction;
-    }
+    if (hiddenPrediction) hiddenPrediction.value = selectedPrediction;
 
     if (predictionConfirmation) {
       predictionConfirmation.textContent = selectedPrediction
@@ -176,27 +175,30 @@
   renderPrediction();
 
   // Sheng Long revela las mesas de regalos.
-  const shenlongButton = document.getElementById("shenlongButton");
-  const giftWishes = document.getElementById("giftWishes");
-  const wishMessage = document.getElementById("wishMessage");
+  const shenlongButton = $("#shenlongButton");
+  const giftWishes = $("#giftWishes");
+  const wishMessage = $("#wishMessage");
 
   shenlongButton?.addEventListener("click", () => {
-    const isOpen = !giftWishes?.hasAttribute("hidden");
+    if (!giftWishes) return;
+
+    const isOpen = !giftWishes.hasAttribute("hidden");
 
     if (isOpen) {
-      giftWishes?.setAttribute("hidden", "");
+      giftWishes.setAttribute("hidden", "");
       shenlongButton.setAttribute("aria-expanded", "false");
       shenlongButton.classList.remove("awakened");
       if (wishMessage) wishMessage.textContent = "";
       return;
     }
 
-    giftWishes?.removeAttribute("hidden");
+    giftWishes.removeAttribute("hidden");
     shenlongButton.setAttribute("aria-expanded", "true");
     shenlongButton.classList.add("awakened");
 
     if (wishMessage) {
-      wishMessage.textContent = "¡Sheng Long ha revelado las mesas de regalos!";
+      wishMessage.textContent =
+        "¡Sheng Long ha revelado las mesas de regalos!";
     }
 
     const rect = shenlongButton.getBoundingClientRect();
@@ -208,9 +210,9 @@
     );
   });
 
-  // Galería automática desde assets/galeria del repositorio público.
-  const galleryGrid = document.getElementById("galleryGrid");
-  const galleryStatus = document.getElementById("galleryStatus");
+  // Galería automática desde assets/galeria en GitHub.
+  const galleryGrid = $("#galleryGrid");
+  const galleryStatus = $("#galleryStatus");
 
   async function loadGallery() {
     if (!galleryGrid || !galleryStatus) return;
@@ -223,9 +225,7 @@
         headers: { Accept: "application/vnd.github+json" }
       });
 
-      if (!response.ok) {
-        throw new Error(`Galería no disponible: ${response.status}`);
-      }
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
       const files = await response.json();
       const images = files
@@ -238,10 +238,9 @@
         return;
       }
 
+      galleryGrid.innerHTML = "";
       galleryStatus.textContent =
         `${images.length} recuerdo${images.length === 1 ? "" : "s"} disponible${images.length === 1 ? "" : "s"}.`;
-
-      galleryGrid.innerHTML = "";
 
       images.forEach((file, index) => {
         const figure = document.createElement("figure");
@@ -249,7 +248,8 @@
 
         const image = document.createElement("img");
         image.src = file.download_url;
-        image.alt = `Recuerdo ${index + 1} del Baby Shower de Gloria y Anthar`;
+        image.alt =
+          `Recuerdo ${index + 1} del Baby Shower de Gloria y Anthar`;
         image.loading = "lazy";
 
         figure.appendChild(image);
@@ -258,57 +258,77 @@
     } catch (error) {
       galleryStatus.textContent =
         "Las fotografías estarán disponibles después del evento.";
-      console.info(error);
+      console.info("Galería aún no disponible.", error);
     }
   }
 
   loadGallery();
 
-
-  document.getElementById("rsvpForm")?.addEventListener("submit", event => {
+  // Confirmación por WhatsApp.
+  $("#rsvpForm")?.addEventListener("submit", event => {
     event.preventDefault();
 
-    const name = document.getElementById("guestName").value.trim();
-    const count = document.getElementById("guestCount").value;
-    const message = document.getElementById("guestMessage").value.trim();
-    const prediction = selectedPrediction || "Sin predicción registrada";
+    const name = $("#guestName")?.value.trim() || "";
+    const count = $("#guestCount")?.value || "1";
+    const message = $("#guestMessage")?.value.trim() || "";
 
-    if (!name) return;
+    if (!name) {
+      $("#guestName")?.focus();
+      return;
+    }
 
     if (!selectedPrediction) {
-      alert("Antes de confirmar, elige arriba si crees que será pequeña guerrera o pequeño saiyajin.");
-      document.getElementById("equipos")?.scrollIntoView({ behavior: "smooth" });
+      alert(
+        "Antes de confirmar, elige arriba si crees que será pequeña guerrera o pequeño saiyajin."
+      );
+      $("#equipos")?.scrollIntoView({ behavior: "smooth" });
       return;
     }
 
     const text = [
-      `Hola, soy ${name}.`,
-      `Confirmo mi asistencia a ${CONFIG.eventName}.`,
+      "Hola Gloria y Anthar 👶🐉",
+      "",
+      `Soy ${name} y confirmo mi asistencia a su Baby Shower y revelación de género.`,
       `Asistentes: ${count}.`,
-      `Mi predicción: ${prediction}.`,
+      `Mi predicción: ${selectedPrediction}.`,
       message ? `Mensaje: ${message}` : ""
     ].filter(Boolean).join("\n");
 
-    const url = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(text)}`;
+    const url =
+      `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(text)}`;
+
     window.open(url, "_blank", "noopener,noreferrer");
   });
 
-  const canvas = document.getElementById("effects");
-  const ctx = canvas.getContext("2d");
+  // Partículas.
+  let ctx = null;
   let particles = [];
   let animationFrame = null;
 
+  if (canvas) {
+    ctx = canvas.getContext("2d");
+  }
+
   function resizeCanvas() {
+    if (!canvas || !ctx) return;
+
     const ratio = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = window.innerWidth * ratio;
-    canvas.height = window.innerHeight * ratio;
+    canvas.width = Math.floor(window.innerWidth * ratio);
+    canvas.height = Math.floor(window.innerHeight * ratio);
     canvas.style.width = `${window.innerWidth}px`;
     canvas.style.height = `${window.innerHeight}px`;
     ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
   }
 
-  function burst(x, y, count = 120, colors = ["#ff5aa7", "#3fa9ff", "#ffd84a", "#ff8a00"]) {
-    for (let i = 0; i < count; i += 1) {
+  function burst(
+    x,
+    y,
+    count = 120,
+    colors = ["#ff5aa7", "#3fa9ff", "#ffd84a", "#ff8a00"]
+  ) {
+    if (!canvas || !ctx) return;
+
+    for (let index = 0; index < count; index += 1) {
       const angle = Math.random() * Math.PI * 2;
       const speed = 3 + Math.random() * 9;
 
@@ -329,26 +349,32 @@
   }
 
   function animate() {
+    if (!ctx) return;
+
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    particles = particles.filter(particle => particle.life > 0);
 
-    particles = particles.filter(p => p.life > 0);
+    particles.forEach(particle => {
+      particle.vx *= 0.985;
+      particle.vy = particle.vy * 0.985 + particle.gravity;
+      particle.x += particle.vx;
+      particle.y += particle.vy;
+      particle.life -= particle.decay;
 
-    particles.forEach(p => {
-      p.vx *= 0.985;
-      p.vy = p.vy * 0.985 + p.gravity;
-      p.x += p.vx;
-      p.y += p.vy;
-      p.life -= p.decay;
-
-      ctx.globalAlpha = Math.max(0, p.life);
-      ctx.fillStyle = p.color;
-      ctx.fillRect(p.x, p.y, p.size, p.size * 0.65);
+      ctx.globalAlpha = Math.max(0, particle.life);
+      ctx.fillStyle = particle.color;
+      ctx.fillRect(
+        particle.x,
+        particle.y,
+        particle.size,
+        particle.size * 0.65
+      );
     });
 
     ctx.globalAlpha = 1;
 
     if (particles.length) {
-      animationFrame = requestAnimationFrame(animate);
+      animationFrame = window.requestAnimationFrame(animate);
     } else {
       animationFrame = null;
     }

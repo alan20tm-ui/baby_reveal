@@ -44,7 +44,9 @@
     <nav id="navMenu">
       <a href="#detalles">Detalles</a>
       <a href="#contador">Cuenta regresiva</a>
-      <a href="#equipos">Elige tu equipo</a>
+      <a href="#equipos">Predicción</a>
+      <a href="#galeria">Galería</a>
+      <a href="#regalos">Regalos</a>
       <a href="#confirmar">Confirmar</a>
     </nav>
 
@@ -218,156 +220,121 @@
         </div>
       </div>
     </section>
-
     <section class="section gallery-section" id="galeria">
       <div class="container">
         <header class="section-header reveal">
-          <p class="section-tag">Nuestra historia</p>
-          <h2>Una aventura que crece con amor</h2>
+          <p class="section-tag">Recuerdos del gran día</p>
+          <h2>Nuestra galería</h2>
           <p>
-            Puedes agregar después tres fotografías dentro de la carpeta assets
-            con los nombres foto1.jpg, foto2.jpg y foto3.jpg.
+            Después del evento iremos agregando aquí los momentos más especiales
+            del Baby Shower de Gloria y Anthar.
           </p>
         </header>
 
-        <div class="gallery-grid">
-          <figure class="photo-card photo-card-1 reveal">
-            <img src="assets/foto1.jpg" alt="Fotografía de Gloria y Anthar"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
-            <div class="photo-placeholder">
-              <span>01</span>
-              <strong>Nuestra historia</strong>
-              <small>assets/foto1.jpg</small>
-            </div>
-          </figure>
-
-          <figure class="photo-card photo-card-2 reveal">
-            <img src="assets/foto2.jpg" alt="Fotografía de los futuros papás"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
-            <div class="photo-placeholder">
-              <span>02</span>
-              <strong>Esperando con amor</strong>
-              <small>assets/foto2.jpg</small>
-            </div>
-          </figure>
-
-          <figure class="photo-card photo-card-3 reveal">
-            <img src="assets/foto3.jpg" alt="Recuerdo especial de Gloria y Anthar"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
-            <div class="photo-placeholder">
-              <span>03</span>
-              <strong>Una nueva aventura</strong>
-              <small>assets/foto3.jpg</small>
-            </div>
-          </figure>
+        <div class="gallery-status reveal" id="galleryStatus">
+          Las fotografías estarán disponibles después del evento.
         </div>
+
+        <div class="gallery-grid gallery-grid-auto" id="galleryGrid" aria-live="polite"></div>
       </div>
     </section>
-
 <section class="section teams" id="equipos">
       <div class="container">
         <header class="section-header light reveal">
-          <p class="section-tag">Elige tu lado</p>
-          <h2>¿Equipo Milk o Equipo Goku?</h2>
-          <p>Haz tu predicción y libera toda tu energía.</p>
+          <p class="section-tag">Haz tu predicción</p>
+          <h2>¿Pequeña guerrera o pequeño saiyajin?</h2>
+          <p>
+            Elige una opción. Tu respuesta quedará guardada en esta visita y
+            se enviará automáticamente cuando confirmes tu asistencia.
+          </p>
         </header>
 
-        <div class="team-grid">
-          <article class="team-card reveal">
-            <p>Creo que será...</p>
-            <h3>Una pequeña guerrera</h3>
-            <button class="vote-btn pink-vote" data-team="milk">Votar por Milk</button>
-            <small><strong id="milkVotes">0</strong> votos en este dispositivo</small>
-          </article>
+        <div class="prediction-grid">
+          <button
+            class="prediction-card prediction-card-pink reveal"
+            type="button"
+            data-prediction="Pequeña guerrera"
+            aria-pressed="false">
+            <span class="prediction-emoji">🌸</span>
+            <small>Creo que será una</small>
+            <strong>Pequeña guerrera</strong>
+            <span class="prediction-action">Elegir esta opción</span>
+          </button>
 
           <div class="versus reveal">VS</div>
 
-          <article class="team-card reveal">
-            <p>Creo que será...</p>
-            <h3>Un pequeño saiyajin</h3>
-            <button class="vote-btn blue-vote" data-team="goku">Votar por Goku</button>
-            <small><strong id="gokuVotes">0</strong> votos en este dispositivo</small>
-          </article>
+          <button
+            class="prediction-card prediction-card-blue reveal"
+            type="button"
+            data-prediction="Pequeño saiyajin"
+            aria-pressed="false">
+            <span class="prediction-emoji">⚡</span>
+            <small>Creo que será un</small>
+            <strong>Pequeño saiyajin</strong>
+            <span class="prediction-action">Elegir esta opción</span>
+          </button>
         </div>
 
-        <p id="voteMessage" class="vote-message"></p>
-      </div>
-    </section>
-
-    <section class="section balls-section">
-      <div class="container">
-        <header class="section-header reveal">
-          <p class="section-tag">Reúne las siete esferas</p>
-          <h2>El deseo está por cumplirse</h2>
-        </header>
-
-        <div class="balls-row">
-          <div class="dragon-ball progress-ball"><span>★</span></div>
-          <div class="dragon-ball progress-ball"><span>★★</span></div>
-          <div class="dragon-ball progress-ball"><span>★★★</span></div>
-          <div class="dragon-ball progress-ball"><span>★★★★</span></div>
-          <div class="dragon-ball progress-ball"><span>★★★★★</span></div>
-          <div class="dragon-ball progress-ball"><span>★★★★★★</span></div>
-          <div class="dragon-ball progress-ball"><span>★★★★★★★</span></div>
+        <div class="prediction-confirmation" id="predictionConfirmation" aria-live="polite">
+          Aún no has elegido tu predicción.
         </div>
       </div>
     </section>
+<section class="section wishes-section" id="regalos">
+      <div class="container wishes-layout">
+        <div class="shenlong-stage reveal">
+          <button
+            class="shenlong-button"
+            id="shenlongButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="giftWishes">
+            <span class="shenlong-glow" aria-hidden="true"></span>
+            <img src="assets/Sheng%20Long.png" alt="Shenlong de Baby Shower">
+            <span class="shenlong-instruction">Toca a Sheng Long para revelar los deseos</span>
+          </button>
+        </div>
 
-    <section class="section gifts">
-      <div class="container gift-layout">
-        <div class="gift-box reveal"><div class="ribbon"></div></div>
-
-        <div class="gift-copy reveal">
-          <p class="section-tag">Baby Shower</p>
-          <h2>Tu presencia es nuestro mejor regalo</h2>
+        <div class="wishes-copy reveal">
+          <p class="section-tag">Nuestros deseos</p>
+          <h2>Sheng Long guarda las mesas de regalos</h2>
           <p>
-            Pero si deseas obsequiar algo al bebé, puedes consultar nuestra mesa de regalos
-            o participar en la lluvia de sobres.
+            Haz clic en Sheng Long para revelar las mesas de regalos de Gloria y Anthar.
           </p>
-          <div class="gift-buttons">
-            <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60020362" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+
+          <div class="gift-wishes" id="giftWishes" hidden>
+            <a
+              href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60020362"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer">
               Mesa Liverpool
             </a>
-            <a href="https://www.amazon.com.mx/baby-reg/gloriagarca-varela-septiembre-2026-ciudaddemexico/2JXGO804OW5CI" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+
+            <a
+              href="https://www.amazon.com.mx/baby-reg/gloriagarca-varela-septiembre-2026-ciudaddemexico/2JXGO804OW5CI"
+              class="btn btn-secondary"
+              target="_blank"
+              rel="noopener noreferrer">
               Mesa Amazon
             </a>
           </div>
-          <p class="copy-status">Elige la tienda que prefieras para consultar nuestra mesa de regalos.</p>
+
+          <p class="wish-message" id="wishMessage" aria-live="polite"></p>
         </div>
       </div>
     </section>
-
-    <section class="reveal-section" id="invocacion">
-      <div class="summon-rays" aria-hidden="true"></div>
-      <div class="summon-lightning lightning-1" aria-hidden="true"></div>
-      <div class="summon-lightning lightning-2" aria-hidden="true"></div>
-      <div class="reveal-content reveal">
-        <div class="summon-orbit" aria-hidden="true">
-          <span class="summon-ball ball-a">★</span>
-          <span class="summon-ball ball-b">★★</span>
-          <span class="summon-ball ball-c">★★★</span>
-        </div>
-        <div class="mystery">?</div>
-        <p class="section-tag">El momento más esperado</p>
-        <h2>¿Quién viene en camino?</h2>
-        <p>
-          La respuesta sigue protegida por las esferas.
-          Muy pronto descubriremos si nuestra aventura se pinta de rosa o de azul.
-        </p>
-        <button id="energyBtn" class="main-btn">Invocar a Shenlong</button>
-      <p id="summonMessage" class="summon-message" aria-live="polite"></p>
-      </div>
-    </section>
-
-    <section class="section rsvp" id="confirmar">
+<section class="section rsvp" id="confirmar">
       <div class="container rsvp-grid">
         <div class="rsvp-copy reveal">
           <p class="section-tag">Confirma tu participación</p>
           <h2>Queremos vivir esta aventura contigo</h2>
-          <p>Completa tus datos y te llevaremos directamente a WhatsApp.</p>
+          <p>Completa tus datos. Tu predicción elegida arriba se agregará automáticamente al mensaje de WhatsApp.</p>
         </div>
 
         <form id="rsvpForm" class="rsvp-form reveal">
+          <input id="hiddenPrediction" type="hidden" name="prediction" value="">
+          <input id="hiddenPrediction" type="hidden" name="prediction" value="">
           <label>
             Tu nombre
             <input id="guestName" type="text" required placeholder="Escribe tu nombre">
@@ -383,15 +350,7 @@
               <option value="5">5 personas</option>
             </select>
           </label>
-
-          <fieldset>
-            <legend>Mi predicción</legend>
-            <label><input type="radio" name="prediction" value="Equipo Milk"> Equipo Milk</label>
-            <label><input type="radio" name="prediction" value="Equipo Goku"> Equipo Goku</label>
-            <label><input type="radio" name="prediction" value="Aún no lo sé" checked> Aún no lo sé</label>
-          </fieldset>
-
-          <label>
+<label>
             Mensaje
             <textarea id="guestMessage" rows="4" placeholder="Mensaje opcional"></textarea>
           </label>

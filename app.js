@@ -2,9 +2,9 @@
   "use strict";
 
   const CONFIG = {
-    eventDate: "2027-06-12T17:00:00-06:00",
+    eventDate: "2026-08-15T12:00:00-06:00",
     whatsappNumber: "5215541946413",
-    eventName: "Baby Shower y Gender Reveal",
+    eventName: "Baby Shower y revelación de género de Gloria y Anthar",
     giftText: "Tu presencia es nuestro mejor regalo. Para más información comunícate con los futuros papás."
   };
 
@@ -150,22 +150,23 @@
 
   energyBtn?.addEventListener("click", () => {
     const section = document.querySelector(".reveal-section");
-    section?.classList.add("flash");
-    burst(window.innerWidth / 2, window.innerHeight / 2, 240);
+    const message = document.getElementById("summonMessage");
 
-    setTimeout(() => section?.classList.remove("flash"), 800);
-  });
+    section?.classList.remove("summoning", "flash");
+    void section?.offsetWidth;
+    section?.classList.add("summoning", "flash");
 
-  document.getElementById("copyGift")?.addEventListener("click", async () => {
-    const status = document.getElementById("copyStatus");
-
-    try {
-      await navigator.clipboard.writeText(CONFIG.giftText);
-      status.textContent = "Información copiada.";
-    } catch {
-      status.textContent = CONFIG.giftText;
+    if (message) {
+      message.textContent = "Las siete esferas han respondido... el deseo está cada vez más cerca.";
     }
+
+    burst(window.innerWidth / 2, window.innerHeight / 2, 280);
+
+    setTimeout(() => {
+      section?.classList.remove("summoning", "flash");
+    }, 900);
   });
+
 
   document.getElementById("rsvpForm")?.addEventListener("submit", event => {
     event.preventDefault();

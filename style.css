@@ -2062,17 +2062,15 @@ footer{padding:85px 20px;color:#fff;text-align:center;background:var(--navy)}.fo
 }
 
 /* =========================================================
-   ENTREGA FINAL: ESFERAS DECORATIVAS SIN MOVER EL LAYOUT
-   Solo tamaños y posición de Esfera.png
+   AJUSTE FINAL DE ESFERAS — SIN MOVER EL LAYOUT
    ========================================================= */
 
-/* La imagen siempre queda contenida dentro de su esfera actual */
+/* Todas las imágenes dentro de los contenedores existentes */
 .dragon-ball > img,
 .mini-ball > img,
 .hero-ball > img,
 .intro-dragon-ball > img,
-.experience-ball > img,
-.footer-ball > img {
+.experience-ball > img {
   width: 100% !important;
   height: 100% !important;
   display: block !important;
@@ -2080,168 +2078,203 @@ footer{padding:85px 20px;color:#fff;text-align:center;background:var(--navy)}.fo
   pointer-events: none !important;
 }
 
-/* Esferas del hero: pequeñas, flotantes y fuera del flujo */
+/* Esferas del hero: tamaño fijo y posición absoluta */
+.hero {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
 .hero .hero-ball {
   position: absolute !important;
-  z-index: 3 !important;
-  display: block !important;
+  z-index: 2 !important;
+  width: 62px !important;
+  height: 62px !important;
+  min-width: 62px !important;
+  min-height: 62px !important;
   margin: 0 !important;
   padding: 0 !important;
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
-  overflow: visible !important;
   animation: heroBallFloat 6s ease-in-out infinite !important;
+  pointer-events: none !important;
 }
 
 .hero .hero-ball-1 {
-  width: 56px !important;
-  height: 56px !important;
-  top: 18% !important;
+  top: 19% !important;
   left: 4% !important;
-  right: auto !important;
-  bottom: auto !important;
 }
 
 .hero .hero-ball-2 {
-  width: 68px !important;
-  height: 68px !important;
   top: 27% !important;
-  right: 4% !important;
-  left: auto !important;
-  bottom: auto !important;
+  right: 5% !important;
+  width: 76px !important;
+  height: 76px !important;
+  min-width: 76px !important;
+  min-height: 76px !important;
   animation-delay: -2s !important;
 }
 
 .hero .hero-ball-3 {
-  width: 48px !important;
-  height: 48px !important;
-  right: 12% !important;
-  bottom: 9% !important;
-  top: auto !important;
-  left: auto !important;
+  right: 19% !important;
+  bottom: 12% !important;
+  width: 50px !important;
+  height: 50px !important;
+  min-width: 50px !important;
+  min-height: 50px !important;
   animation-delay: -4s !important;
 }
 
-/* Entrada: visibles, pero sin invadir el contenido */
-.intro-dragon-ball {
-  position: absolute !important;
-  z-index: 1 !important;
-  display: block !important;
-  padding: 0 !important;
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  overflow: visible !important;
-}
-
-.intro-dragon-ball-1 {
-  width: 58px !important;
-  height: 58px !important;
-  top: 12% !important;
-  left: 6% !important;
-}
-
-.intro-dragon-ball-2 {
-  width: 76px !important;
-  height: 76px !important;
-  top: 16% !important;
-  right: 7% !important;
-}
-
-.intro-dragon-ball-3 {
-  width: 52px !important;
-  height: 52px !important;
-  right: 13% !important;
-  bottom: 10% !important;
-}
-
-/* Sección “Lo que viviremos juntos” */
-.experience-ball {
-  position: absolute !important;
-  z-index: 2 !important;
-  display: block !important;
-  padding: 0 !important;
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  overflow: visible !important;
-}
-
-.experience-ball-1 {
-  width: 62px !important;
-  height: 62px !important;
-  top: 13% !important;
-  left: 3% !important;
-}
-
-.experience-ball-2 {
-  width: 72px !important;
-  height: 72px !important;
-  top: 9% !important;
-  right: 4% !important;
-}
-
-.experience-ball-3 {
-  width: 58px !important;
-  height: 58px !important;
-  right: 9% !important;
-  bottom: 7% !important;
-}
-
-/* Esferas sutiles en el resto de las secciones, sin agregar HTML */
-.section:not(.experience-section):not(.teams):not(.wishes-section)::before,
-.section:not(.experience-section):not(.teams):not(.wishes-section)::after {
-  content: "" !important;
+/* Entrada */
+.intro .intro-dragon-ball {
   position: absolute !important;
   z-index: 1 !important;
   width: 54px !important;
   height: 54px !important;
+  min-width: 54px !important;
+  min-height: 54px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
   pointer-events: none !important;
+}
+
+.intro .intro-dragon-ball-1 { top: 12% !important; left: 7% !important; }
+.intro .intro-dragon-ball-2 {
+  top: 16% !important;
+  right: 8% !important;
+  width: 68px !important;
+  height: 68px !important;
+  min-width: 68px !important;
+  min-height: 68px !important;
+}
+.intro .intro-dragon-ball-3 { right: 15% !important; bottom: 10% !important; }
+
+/* Esfera principal de entrada y navbar */
+.intro .intro-ball {
+  width: 92px !important;
+  height: 92px !important;
+  min-width: 92px !important;
+  min-height: 92px !important;
+  margin: 0 auto 24px !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.navbar .mini-ball {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  min-height: 42px !important;
+  flex: 0 0 42px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Esferas ya existentes en “Lo que viviremos juntos” */
+.experience-section .experience-ball {
+  position: absolute !important;
+  z-index: 2 !important;
+  width: 58px !important;
+  height: 58px !important;
+  min-width: 58px !important;
+  min-height: 58px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  pointer-events: none !important;
+}
+
+.experience-section .experience-ball-1 { top: 13% !important; left: 4% !important; }
+.experience-section .experience-ball-2 {
+  top: 8% !important;
+  right: 6% !important;
+  width: 70px !important;
+  height: 70px !important;
+  min-width: 70px !important;
+  min-height: 70px !important;
+}
+.experience-section .experience-ball-3 { right: 10% !important; bottom: 8% !important; }
+
+/* Dos esferas decorativas en cada sección restante.
+   Son fondos absolutos: nunca ocupan espacio ni empujan contenido. */
+main > .section {
+  position: relative !important;
+  isolation: isolate !important;
+}
+
+main > .section > .container {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+main > .section:not(.experience-section)::before,
+main > .section:not(.experience-section)::after {
+  content: "" !important;
+  position: absolute !important;
+  z-index: 1 !important;
+  width: 56px !important;
+  height: 56px !important;
   background: url("assets/Esfera.png") center / contain no-repeat !important;
-  filter: drop-shadow(0 0 10px rgba(255, 160, 0, .28)) !important;
-  opacity: .88 !important;
-  animation: sphereDecorFloat 7s ease-in-out infinite !important;
+  filter: drop-shadow(0 0 10px rgba(255, 167, 0, .32)) !important;
+  opacity: .9 !important;
+  pointer-events: none !important;
+  animation: heroBallFloat 7s ease-in-out infinite !important;
 }
 
-.section:not(.experience-section):not(.teams):not(.wishes-section)::before {
-  top: 54px !important;
-  left: 28px !important;
+main > .section:not(.experience-section)::before {
+  top: 11% !important;
+  left: 3% !important;
 }
 
-.section:not(.experience-section):not(.teams):not(.wishes-section)::after {
-  right: 34px !important;
-  bottom: 54px !important;
-  animation-delay: -3.5s !important;
+main > .section:not(.experience-section)::after {
+  right: 4% !important;
+  bottom: 9% !important;
+  width: 68px !important;
+  height: 68px !important;
+  animation-delay: -3s !important;
 }
 
-.section > .container {
-  position: relative;
-  z-index: 2;
+/* Variación para que no parezcan alineadas sección tras sección */
+main > .section:nth-of-type(even)::before {
+  top: 18% !important;
+  left: 7% !important;
+  width: 48px !important;
+  height: 48px !important;
 }
 
-@keyframes sphereDecorFloat {
-  0%, 100% { transform: translateY(0) rotate(-4deg); }
-  50% { transform: translateY(-12px) rotate(5deg); }
+main > .section:nth-of-type(even)::after {
+  right: 8% !important;
+  bottom: 14% !important;
+  width: 60px !important;
+  height: 60px !important;
 }
 
-@media (max-width: 760px) {
-  .hero .hero-ball-1 { width: 42px !important; height: 42px !important; left: 2% !important; }
-  .hero .hero-ball-2 { display: none !important; }
-  .hero .hero-ball-3 { width: 38px !important; height: 38px !important; right: 4% !important; }
-
-  .intro-dragon-ball-1 { width: 44px !important; height: 44px !important; }
-  .intro-dragon-ball-2 { width: 54px !important; height: 54px !important; }
-  .intro-dragon-ball-3 { width: 40px !important; height: 40px !important; }
-
-  .experience-ball-1,
-  .experience-ball-3 { width: 44px !important; height: 44px !important; }
-  .experience-ball-2 { display: none !important; }
-
-  .section:not(.experience-section):not(.teams):not(.wishes-section)::before,
-  .section:not(.experience-section):not(.teams):not(.wishes-section)::after {
+@media (max-width: 700px) {
+  .hero .hero-ball,
+  .intro .intro-dragon-ball,
+  .experience-section .experience-ball,
+  main > .section:not(.experience-section)::before,
+  main > .section:not(.experience-section)::after {
     width: 38px !important;
     height: 38px !important;
-    opacity: .72 !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
   }
+
+  .hero .hero-ball-2,
+  .intro .intro-dragon-ball-2,
+  .experience-section .experience-ball-2 {
+    display: none !important;
+  }
+
+  .hero .hero-ball-1 { top: 15% !important; left: 2% !important; }
+  .hero .hero-ball-3 { right: 3% !important; bottom: 17% !important; }
 }

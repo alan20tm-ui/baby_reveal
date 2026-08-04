@@ -119,42 +119,74 @@
       </div>
     </section>
 
-    <section class="section details" id="detalles">
+    <section class="section details radar-details" id="detalles">
       <div class="container">
-        <header class="section-header reveal">
+        <header class="section-header radar-heading reveal">
           <p class="section-tag">Coordenadas de la misión</p>
-          <h2>Detalles del evento</h2>
-          <p>Todo lo necesario para acompañarnos en esta celebración.</p>
+          <h2>Radar del evento</h2>
+          <p>
+            El radar ha localizado el punto exacto donde comenzará nuestra nueva aventura.
+          </p>
         </header>
 
-        <div class="cards-grid">
-          <article class="info-card reveal">
-            <div class="card-number">01</div>
-            <h3>Fecha</h3>
-            <p>Sábado 15 de agosto de 2026</p>
-          </article>
+        <div class="radar-layout">
+          <div class="radar-visual reveal">
+            <div class="radar-energy" aria-hidden="true"></div>
 
-          <article class="info-card reveal">
-            <div class="card-number">02</div>
-            <h3>Hora</h3>
-            <p>Recepción a partir de las 12:00 PM</p>
-          </article>
+            <img
+              src="assets/Radar.png"
+              alt="Radar de las Esferas del Dragón"
+              class="radar-image">
 
-          <article class="info-card reveal">
-            <div class="card-number">03</div>
-            <h3>Lugar</h3>
-            <p>Adolfo Ruiz Cortines 11, Presidentes, Álvaro Obregón, 01290 Ciudad de México, CDMX</p>
-          </article>
+            <span class="radar-ping radar-ping-1" aria-hidden="true"></span>
+            <span class="radar-ping radar-ping-2" aria-hidden="true"></span>
+            <span class="radar-ping radar-ping-3" aria-hidden="true"></span>
+          </div>
 
-          <article class="info-card reveal">
-            <div class="card-number">04</div>
-            <h3>Dress code</h3>
-            <p>Rosa, azul, naranja o tonos neutros</p>
-          </article>
-        </div>
+          <div class="radar-information">
+            <article class="radar-data radar-data-date reveal">
+              <span class="radar-data-code">01</span>
+              <div>
+                <small>Fecha localizada</small>
+                <h3>15 de agosto de 2026</h3>
+              </div>
+            </article>
 
-        <div class="center">
-          <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Adolfo%20Ruiz%20Cortines%2011%2C%20Presidentes%2C%20%C3%81lvaro%20Obreg%C3%B3n%2C%2001290%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX" target="_blank" rel="noopener noreferrer">Abrir ubicación</a>
+            <article class="radar-data reveal">
+              <span class="radar-data-code">02</span>
+              <div>
+                <small>Hora de encuentro</small>
+                <h3>12:00 PM</h3>
+              </div>
+            </article>
+
+            <article class="radar-data reveal">
+              <span class="radar-data-code">03</span>
+              <div>
+                <small>Ubicación detectada</small>
+                <h3>Adolfo Ruiz Cortines 11</h3>
+                <p>
+                  Presidentes, Álvaro Obregón, 01290 Ciudad de México, CDMX
+                </p>
+              </div>
+            </article>
+
+            <article class="radar-data reveal">
+              <span class="radar-data-code">04</span>
+              <div>
+                <small>Código de vestimenta</small>
+                <h3>Rosa, azul, naranja o tonos neutros</h3>
+              </div>
+            </article>
+
+            <a
+              class="btn btn-primary radar-location-button reveal"
+              href="https://www.google.com/maps/search/?api=1&query=Adolfo%20Ruiz%20Cortines%2011%2C%20Presidentes%2C%20%C3%81lvaro%20Obreg%C3%B3n%2C%2001290%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX"
+              target="_blank"
+              rel="noopener noreferrer">
+              Abrir ubicación
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -291,16 +323,22 @@
       </div>
     </section>
 <section class="section wishes-section" id="regalos">
+      <div class="wishes-sky" aria-hidden="true">
+        <span class="wish-cloud wish-cloud-1"></span>
+        <span class="wish-cloud wish-cloud-2"></span>
+        <span class="wish-cloud wish-cloud-3"></span>
+      </div>
+
       <div class="container">
-        <header class="section-header reveal">
+        <header class="section-header wishes-heading reveal">
           <p class="section-tag">Nuestros deseos</p>
           <h2>Sheng Long guarda las mesas de regalos</h2>
           <p>
-            Toca la imagen para revelar los deseos de Gloria y Anthar.
+            Toca a Sheng Long para revelar los deseos de Gloria y Anthar.
           </p>
         </header>
 
-        <div class="shenlong-card reveal">
+        <div class="shenlong-scene reveal">
           <button
             class="shenlong-button"
             id="shenlongButton"
@@ -310,9 +348,13 @@
 
             <span class="shenlong-glow" aria-hidden="true"></span>
 
-            <span class="shenlong-image-wrap">
-              <img src="assets/Sheng%20Long.png" alt="Sheng Long de Baby Shower">
-            </span>
+            <img
+              src="assets/Sheng%20Long.png"
+              alt="Sheng Long de Baby Shower"
+              class="shenlong-main-image">
+
+            <span class="front-cloud front-cloud-left" aria-hidden="true"></span>
+            <span class="front-cloud front-cloud-right" aria-hidden="true"></span>
 
             <span class="shenlong-instruction">
               Toca a Sheng Long para revelar los deseos

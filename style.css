@@ -2037,3 +2037,26 @@ footer{padding:85px 20px;color:#fff;text-align:center;background:var(--navy)}.fo
   .hero-grid { padding-top: 145px !important; }
   .prediction-hero-section .section-header { margin-bottom: 52px !important; }
 }
+
+/* SOLO IMAGEN ESFERA.PNG — SIN CAMBIOS DE DISEÑO */
+.dragon-ball > img,
+.mini-ball > img,
+.hero-ball > img,
+.intro-dragon-ball > img,
+.experience-ball > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.dragon-ball:has(> img),
+.mini-ball:has(> img),
+.hero-ball:has(> img),
+.intro-dragon-ball:has(> img),
+.experience-ball:has(> img) {
+  color: transparent;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}

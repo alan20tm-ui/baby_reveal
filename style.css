@@ -2060,3 +2060,42 @@ footer{padding:85px 20px;color:#fff;text-align:center;background:var(--navy)}.fo
   border-color: transparent;
   box-shadow: none;
 }
+/* Esferas personalizadas */
+
+.dragon-ball img,
+.intro-dragon-ball img,
+.hero-dragon-ball img,
+.experience-ball img,
+.footer-dragon-ball img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+    pointer-events:none;
+}
+
+/* tamaños originales */
+.intro-ball{
+    width:72px;
+    height:72px;
+}
+
+.intro-dragon-ball{
+    width:34px;
+    height:34px;
+}
+
+.hero-dragon-ball{
+    width:42px;
+    height:42px;
+}
+
+.experience-ball{
+    width:30px;
+    height:30px;
+}
+
+.footer-dragon-ball{
+    width:32px;
+    height:32px;
+}

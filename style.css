@@ -620,3 +620,285 @@ footer{padding:85px 20px;color:#fff;text-align:center;background:var(--navy)}.fo
     padding: 12px 17px;
   }
 }
+
+/* ===== CORRECCIÓN FINAL HERO, RADAR Y SHENG LONG ===== */
+
+/* Evitar que el acento de “está” se corte */
+.hero-copy {
+  overflow: visible;
+}
+
+.hero-copy h2 {
+  overflow: visible;
+  padding-top: .16em;
+  line-height: .88;
+}
+
+/* Fecha y hora realmente más grandes */
+.hero .date-pill {
+  gap: 22px;
+  margin: 36px 0 34px;
+  flex-wrap: wrap;
+}
+
+.hero .date-pill strong {
+  padding: 16px 28px;
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+  line-height: 1;
+  letter-spacing: .04em;
+}
+
+.hero .date-pill span {
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  font-weight: 900;
+}
+
+/* Encabezado de detalles con más aire */
+.radar-heading h2 {
+  overflow: visible;
+  padding-top: .12em;
+  line-height: .9;
+}
+
+.radar-heading > p:last-child {
+  font-size: clamp(1.08rem, 1.7vw, 1.4rem);
+}
+
+/* Fecha y hora destacadas */
+.event-highlight-grid {
+  display: grid;
+  grid-template-columns: 1.35fr .65fr;
+  gap: 20px;
+  margin-bottom: 34px;
+}
+
+.event-highlight {
+  min-height: 180px;
+  display: grid;
+  align-content: center;
+  padding: 30px 36px;
+  border: 1px solid rgba(8,31,68,.08);
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 20px 55px rgba(7,28,61,.09);
+}
+
+.event-highlight small {
+  margin-bottom: 8px;
+  color: #617087;
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.event-highlight strong {
+  font-family: "Bangers", sans-serif;
+  font-size: clamp(3.4rem, 6vw, 6.2rem);
+  font-weight: 400;
+  letter-spacing: .035em;
+  line-height: .92;
+}
+
+.event-highlight-date {
+  background:
+    radial-gradient(circle at 88% 22%, rgba(255,216,74,.23), transparent 30%),
+    linear-gradient(135deg, #fffef8, #fff5d5);
+}
+
+.event-highlight-time {
+  color: #fff;
+  background:
+    radial-gradient(circle at 82% 20%, rgba(96,194,255,.28), transparent 30%),
+    linear-gradient(135deg, #092a58, #0c4d88);
+}
+
+.event-highlight-time small {
+  color: rgba(255,255,255,.65);
+}
+
+/* Radar solamente para la ubicación */
+.location-radar-card {
+  display: grid;
+  grid-template-columns: minmax(300px, .9fr) minmax(420px, 1.1fr);
+  align-items: center;
+  gap: 55px;
+  overflow: hidden;
+  padding: 40px;
+  border: 1px solid rgba(26,103,47,.1);
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 18% 50%, rgba(100,255,105,.12), transparent 26%),
+    linear-gradient(135deg, rgba(255,255,255,.96), rgba(244,251,246,.92));
+  box-shadow: 0 24px 70px rgba(18,69,37,.1);
+}
+
+.location-radar-visual {
+  position: relative;
+  min-height: 460px;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.location-radar-visual .radar-image {
+  width: min(430px, 100%);
+  max-height: 430px;
+}
+
+.location-radar-copy h3 {
+  margin-bottom: 12px;
+  font-family: "Bangers", sans-serif;
+  font-size: clamp(3.3rem, 5.5vw, 5.6rem);
+  font-weight: 400;
+  letter-spacing: .04em;
+  line-height: .9;
+}
+
+.location-radar-copy > p:not(.section-tag) {
+  max-width: 560px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.dress-code-pill {
+  display: grid;
+  gap: 4px;
+  margin: 24px 0;
+  padding: 16px 18px;
+  border-left: 5px solid #72c94c;
+  border-radius: 14px;
+  background: rgba(121,213,83,.1);
+}
+
+.dress-code-pill span {
+  color: #4d7c59;
+  font-size: .7rem;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.dress-code-pill strong {
+  font-size: 1rem;
+}
+
+/* Sheng Long completamente centrado */
+.wishes-section {
+  text-align: center;
+}
+
+.wishes-heading {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shenlong-scene-centered {
+  max-width: 980px;
+  width: 100%;
+  min-height: 760px;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  margin: -10px auto 0;
+}
+
+.shenlong-scene-centered .shenlong-button {
+  width: min(820px, 94vw);
+  margin: 0 auto;
+}
+
+.shenlong-scene-centered .shenlong-main-image {
+  display: block;
+  width: 100%;
+  max-height: 720px;
+  margin: 0 auto;
+  object-position: center;
+}
+
+.shenlong-scene-centered .gift-wishes,
+.shenlong-scene-centered .wish-message {
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .event-highlight-grid,
+  .location-radar-card {
+    grid-template-columns: 1fr;
+  }
+
+  .event-highlight {
+    text-align: center;
+  }
+
+  .location-radar-card {
+    padding: 28px;
+    text-align: center;
+  }
+
+  .location-radar-copy > p:not(.section-tag) {
+    margin-inline: auto;
+  }
+
+  .location-radar-copy .btn {
+    margin-inline: auto;
+  }
+
+  .dress-code-pill {
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-copy h2 {
+    padding-top: .22em;
+    line-height: .92;
+  }
+
+  .hero .date-pill {
+    gap: 11px;
+  }
+
+  .hero .date-pill strong {
+    padding: 14px 20px;
+    font-size: 1.55rem;
+  }
+
+  .hero .date-pill span {
+    font-size: 1rem;
+  }
+
+  .event-highlight {
+    min-height: 150px;
+    padding: 24px 20px;
+  }
+
+  .event-highlight strong {
+    font-size: clamp(3rem, 14vw, 4.8rem);
+  }
+
+  .location-radar-card {
+    padding: 20px 14px 28px;
+  }
+
+  .location-radar-visual {
+    min-height: 330px;
+  }
+
+  .location-radar-visual .radar-image {
+    max-height: 310px;
+  }
+
+  .location-radar-copy h3 {
+    font-size: 3.2rem;
+  }
+
+  .shenlong-scene-centered {
+    min-height: 580px;
+  }
+
+  .shenlong-scene-centered .shenlong-main-image {
+    max-height: 540px;
+  }
+}

@@ -119,6 +119,46 @@
         ? `Tu predicción es: ${selectedPrediction}. Para cambiarla, selecciona la otra opción.`
         : "Aún no has elegido tu predicción.";
     }
+    const dressCard = document.getElementById("dressCodeCard");
+const dressTitle = document.getElementById("dressCodeTitle");
+const dressText = document.getElementById("dressCodeText");
+
+if (dressCard && dressTitle && dressText) {
+
+    dressCard.classList.remove("pink","blue");
+
+    if(selectedPrediction === "Pequeña guerrera"){
+
+        dressCard.classList.add("pink");
+
+        dressTitle.textContent="🩷 Dress Code";
+
+        dressText.textContent=
+        "Tu equipo es Pequeña Guerrera. ¡Ven con una prenda rosa!";
+
+    }
+
+    else if(selectedPrediction==="Pequeño saiyajin"){
+
+        dressCard.classList.add("blue");
+
+        dressTitle.textContent="🩵 Dress Code";
+
+        dressText.textContent=
+        "Tu equipo es Pequeño Saiyajin. ¡Ven con una prenda azul!";
+
+    }
+
+    else{
+
+        dressTitle.textContent="Dress Code";
+
+        dressText.textContent=
+        "Elige tu predicción para conocer el color.";
+
+    }
+
+}
   }
 
   predictionButtons.forEach(button => {

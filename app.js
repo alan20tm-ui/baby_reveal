@@ -102,60 +102,56 @@
   const hiddenPrediction = $("#hiddenPrediction");
   const predictionConfirmation = $("#predictionConfirmation");
 
- function renderPrediction() {
-  predictionButtons.forEach(button => {
-    const selected =
-      button.dataset.prediction === selectedPrediction;
+  function renderPrediction() {
+    predictionButtons.forEach(button => {
+      const selected = button.dataset.prediction === selectedPrediction;
+      button.setAttribute("aria-pressed", String(selected));
 
-    button.setAttribute("aria-pressed", String(selected));
+      const action = $(".prediction-action", button);
+      if (action) {
+        action.textContent = selected
+          ? "Predicción seleccionada"
+          : button.dataset.prediction === "Pequeña guerrera"
+            ? "Elegir a Milk"
+            : "Elegir a Goku";
+      }
+    });
 
-    const action = $(".prediction-action", button);
-
-    if (action) {
-      action.textContent = selected
-        ? "Predicción seleccionada"
-        : button.dataset.prediction === "Pequeña guerrera"
-          ? "Elegir a Milk"
-          : "Elegir a Goku";
+    if (hiddenPrediction) {
+      hiddenPrediction.value = selectedPrediction;
     }
-  });
 
-  if (hiddenPrediction) {
-    hiddenPrediction.value = selectedPrediction;
+    if (predictionConfirmation) {
+      predictionConfirmation.textContent = selectedPrediction
+        ? `Tu predicción es: ${selectedPrediction}. Para cambiarla, selecciona la otra opción.`
+        : "Aún no has elegido tu predicción.";
+    }
+
+    const dressCard = document.getElementById("dressCodeCard");
+    const dressTitle = document.getElementById("dressCodeTitle");
+    const dressText = document.getElementById("dressCodeText");
+
+    if (!dressCard || !dressTitle || !dressText) {
+      return;
+    }
+
+    dressCard.classList.remove("pink", "blue");
+
+    if (selectedPrediction === "Pequeña guerrera") {
+      dressCard.classList.add("pink");
+      dressTitle.textContent = "🩷 Dress Code";
+      dressText.textContent =
+        "Si tu predicción es Pequeña Guerrera, acompáñanos con una prenda rosa.";
+    } else if (selectedPrediction === "Pequeño saiyajin") {
+      dressCard.classList.add("blue");
+      dressTitle.textContent = "🩵 Dress Code";
+      dressText.textContent =
+        "Si tu predicción es Pequeño Saiyajin, acompáñanos con una prenda azul.";
+    } else {
+      dressTitle.textContent = "Dress Code";
+      dressText.textContent = "Elige tu predicción para conocer el color.";
+    }
   }
-
-  if (predictionConfirmation) {
-    predictionConfirmation.textContent = selectedPrediction
-      ? `Tu predicción es: ${selectedPrediction}. Para cambiarla, selecciona la otra opción.`
-      : "Aún no has elegido tu predicción.";
-  }
-
-  const dressCard = document.getElementById("dressCodeCard");
-  const dressTitle = document.getElementById("dressCodeTitle");
-  const dressText = document.getElementById("dressCodeText");
-
-  if (!dressCard || !dressTitle || !dressText) {
-    return;
-  }
-
-  dressCard.classList.remove("pink", "blue");
-
-  if (selectedPrediction === "Pequeña guerrera") {
-    dressCard.classList.add("pink");
-    dressTitle.textContent = "🩷 Dress Code";
-    dressText.textContent =
-      "Si tu predicción es Pequeña Guerrera, acompáñanos con una prenda rosa.";
-  } else if (selectedPrediction === "Pequeño saiyajin") {
-    dressCard.classList.add("blue");
-    dressTitle.textContent = "🩵 Dress Code";
-    dressText.textContent =
-      "Si tu predicción es Pequeño Saiyajin, acompáñanos con una prenda azul.";
-  } else {
-    dressTitle.textContent = "Dress Code";
-    dressText.textContent =
-      "Elige tu predicción para conocer el color.";
-  }
-}
 
   predictionButtons.forEach(button => {
     button.addEventListener("click", () => {

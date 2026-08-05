@@ -782,6 +782,29 @@ footer{padding:85px 20px;color:#fff;text-align:center;background:var(--navy)}.fo
 .dress-code-pill strong {
   font-size: 1rem;
 }
+/* ===== Dress Code dinámico ===== */
+
+.dress-code-pill{
+    transition:.35s ease;
+}
+
+.dress-code-pill.pink{
+    background:#fff0f7;
+    border-left:5px solid #ff5aa7;
+}
+
+.dress-code-pill.pink span{
+    color:#d63384;
+}
+
+.dress-code-pill.blue{
+    background:#eef8ff;
+    border-left:5px solid #3fa9ff;
+}
+
+.dress-code-pill.blue span{
+    color:#0077cc;
+}
 
 /* Sheng Long completamente centrado */
 .wishes-section {
